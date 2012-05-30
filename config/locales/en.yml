@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+
+  layouts:
+    application:
+      search: Search
+      search_placeholder: ISBN, Location ID or User ID
