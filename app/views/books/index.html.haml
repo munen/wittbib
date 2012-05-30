@@ -1,12 +1,12 @@
-= link_to "New", new_resource_path, :class => "btn primary small"
+= link_to "Neues Buch erfassen", new_resource_path, :class => "btn primary small"
 
 %table.table.table-striped.table-condensed
   %thead
     %tr
-      %th Author
-      %th Title
+      %th Autor
+      %th Titel
       %th ISBN
-      %th Description
+      %th Beschreibung
   %tbody
     - for record in collection
       %tr
@@ -14,4 +14,4 @@
         %td=record.title
         %td=record.isbn
         %td=record.description
-        %td= button_to "Delete", record, :confirm => "Are you sure?", :method => :delete
+        %td= button_to "Löschen", record, :confirm => "Sind Sie sicher?", :method => :delete

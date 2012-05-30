@@ -15,7 +15,8 @@
         .container
           %ul.nav
             %li
-              = link_to 'Home', root_path
+              = link_to 'Katalog', books_path
+              = link_to 'Kunden', customers_path
 
           %ul.nav.pull-right
             %li
@@ -23,7 +24,7 @@
                 #feedback.control-group
                   =text_field_tag :query, '', :class => 'search-query', :placeholder => t('.search_placeholder')
                   =submit_tag t('.search')
-                
+
           -#%ul#user_nav.nav.pull-right
           -#  - if user_signed_in?
           -#    %li.info= "Signed in as #{current_user.email}"

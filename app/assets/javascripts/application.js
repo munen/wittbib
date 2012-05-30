@@ -11,8 +11,8 @@
 //= require bootstrap
 
 //= require isbn
+//= require books
 
-//= require_self
 //= require_tree .
 
 $(function() {
@@ -39,4 +39,3 @@ $(function() {
     // match regex for location id
   });
 });
-
