@@ -12,12 +12,7 @@
 
 //= require isbn-groups
 //= require isbn
+//= require books
 
-//= require_self
 //= require_tree .
 
-$(function() {
-  $('#query').change(function(event) {
-    alert(event);
-  });
-});
