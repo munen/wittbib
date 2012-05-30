@@ -1,0 +1,12 @@
+= semantic_form_for resource do |f|
+  = f.inputs do
+    = f.input :name, :label => "Name"
+    = f.input :street, :label => "Strasse"
+    = f.input :phone, :label => "Telephon"
+    = f.input :district, :label => "Ortsteil"
+    = f.input :email, :label => "E-Mail"
+    = f.input :is_library_visitor,
+      :label => "Ist Bibliotheks Besucher?",
+      :as => :radio
+  = f.actions do
+    = f.action :submit, :as => :button, :label => "Lege neuen Kunden an"
