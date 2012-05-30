@@ -14,7 +14,7 @@
       .navbar-inner
         .container
           %ul.nav
-            %li=image_tag 'logo.png'
+            %li=link_to image_tag('logo.png'), books_path
             %li
               = link_to 'Katalog', books_path
             %li
