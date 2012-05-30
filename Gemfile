@@ -12,12 +12,18 @@ gem 'therubyracer', '0.9.8'
 
 # gems in alphabetic order
 gem 'exception_notification_rails3', '1.2.0', :require => 'exception_notifier'
-gem 'formtastic', '1.2.4'
 gem 'jquery-rails', '1.0.13'
 gem 'inherited_resources', '1.3.0'
 gem 'rake', '0.9.2'
 
-gem 'formtastic-bootstrap', :git => 'git://github.com/branch14/formtastic-bootstrap.git'
+gem 'formtastic-bootstrap',
+  :git => 'git://github.com/cgunther/formtastic-bootstrap.git',
+  :branch => 'bootstrap2-rails3-2-formtastic-2-1'
+gem 'formtastic',
+  :git => 'git://github.com/justinfrench/formtastic.git',
+  :branch => '2.1-stable'
+
+
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
 
 # Bundle gems for the local environment. Make sure to
