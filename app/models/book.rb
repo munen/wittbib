@@ -4,11 +4,6 @@ class Book < ActiveRecord::Base
                   :description, :language, :page_count,
                   :published_date, :publisher
 
-  validates :isbn_10, :isbn_13,
-    :uniqueness => true,
-    :allow_blank => true
-
-
   def isbn
     @isbn || isbn_13 || isbn_10
   end
