@@ -22,7 +22,7 @@
             %li
               %form.form-search
                 #feedback.control-group
-                  =text_field_tag :query, '', :class => 'search-query', :placeholder => t('.search_placeholder')
+                  =search_field_tag :query, '', :class => 'search-query', :placeholder => t('.search_placeholder')
                   =submit_tag t('.search')
 
           -#%ul#user_nav.nav.pull-right

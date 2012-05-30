@@ -18,7 +18,6 @@
 $(function() {
 
   $(document).bind('keyup', function(e) {
-    console.log(event.keyCode);
     if(event.keyCode==27) { // ESC
       $('#query').focus().val('');
     }
@@ -38,4 +37,7 @@ $(function() {
     // match regex for user id
     // match regex for location id
   });
+
+  $(".form-search input[type='submit']").hide();
+
 });
