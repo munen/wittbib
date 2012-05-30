@@ -33,6 +33,11 @@ $(function() {
     if(validateISBN(query)) {
       feedback.addClass('success');
       console.log(query); // TODO
+      $.ajax('/books/new?book[isbn]='+query, {
+        success: function(data, textStatus, jqXHR) {
+          $('#content').html('').append(data);
+        }
+      });
     }
     // match regex for user id
     // match regex for location id
