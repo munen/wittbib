@@ -3,12 +3,11 @@ $ ->
       "sAjaxSource"     : "/books/search.datatables",
       "aaSorting"       : [[0, 'asc']],
       "aoColumns"       : [
-        {"sName":"author"},
+        {"sName":"authors"},
         {"sName":"title"},
-        {"sName":"isbn"},
+        {"sName":"isbn_13"},
         {"sName":"description"},
       ],
       "bServerSide"     : true,
-      "fnServerData"    : simpleDatatables,
-      "sPaginationType": "full_numbers"
+      "fnServerData"    : simpleDatatables
     });
