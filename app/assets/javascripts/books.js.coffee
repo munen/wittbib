@@ -5,7 +5,6 @@ $ ->
       "aoColumns"       : [
         {"sName":"authors"},
         {"sName":"title"},
-        {"sName":"isbn_13"},
         {"sName":"description"},
       ],
       "bServerSide"     : true,

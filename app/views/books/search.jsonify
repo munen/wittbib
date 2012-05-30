@@ -3,6 +3,5 @@ collection.each do |book|
 
   json << [book.authors,
            book.title,
-           book.isbn_10,
            link_to("Edit", edit_book_path(book), :class => "btn small"),]
 end
