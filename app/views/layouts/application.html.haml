@@ -1,0 +1,20 @@
+!!! 5
+
+%html
+  %head
+    %title WittBib
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application 
+    = csrf_meta_tag
+    %meta{'charset' => 'utf-8'}/
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+  %body
+    #content
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      = yield
+    #footer
+      = "Rails #{Rails.version}, ruby #{RUBY_VERSION} p#{RUBY_PATCHLEVEL} [#{RUBY_PLATFORM}]"
+      
+
