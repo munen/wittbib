@@ -24,7 +24,8 @@
             %li
               %form.form-search
                 #feedback.control-group
-                  =search_field_tag :query, '', :class => 'search-query', :placeholder => t('.search_placeholder')
+                  =search_field_tag :query, '', :class => 'search-query',
+                    :placeholder => t('.search_placeholder'), :autocomplete => "off"
                   =submit_tag t('.search')
 
           -#%ul#user_nav.nav.pull-right
