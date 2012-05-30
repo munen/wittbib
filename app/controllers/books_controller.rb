@@ -3,7 +3,6 @@ class BooksController < InheritedResources::Base
   respond_to :html, :datatables
 
   def new
-    resource = Book.new(params[:book])
     new!
   end
 
@@ -24,12 +23,15 @@ class BooksController < InheritedResources::Base
     isbn = normalize_isbn(params[:isbn])
     length = isbn.length
     raise 'unknown isbn format' unless %w(10 13).include?(length.to_s)
-    @collection = Book.send("find_all_by_isbn_#{length}", isbn)
-    if @collection.count==1
-      @resource = @collection.first 
-      render :action => 'show'
+    @books = Book.send("find_all_by_isbn_#{length}", isbn)
+    if @books.count==1
+      @book = @books.first 
+      render :action => 'show', :layout => false
+    elsif @books.count > 1
+      render :js => "window.location = '/books?isbn=#{isbn}'"
     else
-      render :action => 'index'
+      @book = Book.new(:isbn => isbn)
+      render :action => 'new', :layout => false
     end
   end
 

@@ -47,16 +47,17 @@ $(function() {
   // $('#query').val('3150094976').keyup();
 
   function queryBooksInternally(isbn) {
+    console.log(' query books internally ');
     $('#progress').show();
-    $.ajax('/books/new?book[isbn]='+isbn, {
+    $.ajax('/books/query?isbn='+isbn, {
       success: function(data, textStatus, jqXHR) {
         $('#content').html('').append(data);
         $('#progress').hide();
-        queryGoogle(isbn);
+        if($('#new_book').length > 0) { queryGoogle(isbn) };
       }
     });
   }
-
+  
   function queryGoogle(isbn) {
     $('#progress').show();
     $.ajax('/api/books/'+isbn, {
