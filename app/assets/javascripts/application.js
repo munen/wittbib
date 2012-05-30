@@ -10,14 +10,33 @@
 // Include twitter bootstraps's javascripts
 //= require bootstrap
 
-//= require isbn-groups
 //= require isbn
 
 //= require_self
 //= require_tree .
 
 $(function() {
-  $('#query').change(function(event) {
-    alert(event);
+
+  $(document).bind('keyup', function(e) {
+    console.log(event.keyCode);
+    if(event.keyCode==27) { // ESC
+      $('#query').focus().val('');
+    }
+  });
+
+  $('#query').keyup(function(event) {
+    var feedback = $('#feedback');
+    var query = event.srcElement.value;
+    feedback.removeClass('success').addClass('warning');
+    if(query=='') {
+      feedback.removeClass('warning');
+    }
+    if(validateISBN(query)) {
+      feedback.addClass('success');
+      console.log(query); // TODO
+    }
+    // match regex for user id
+    // match regex for location id
   });
 });
+
