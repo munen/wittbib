@@ -9,6 +9,7 @@
 
 // Include twitter bootstraps's javascripts
 //= require bootstrap
+//= require bootstrap_pagination
 
 //= require isbn
 //= require books

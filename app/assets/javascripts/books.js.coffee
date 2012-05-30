@@ -1,4 +1,5 @@
 $ ->
+
   $("#books").dataTable({
       "sAjaxSource"     : "/books/search.datatables",
       "aaSorting"       : [[0, 'asc']],
@@ -8,5 +9,7 @@ $ ->
         {"sName":"description"},
       ],
       "bServerSide"     : true,
+      "sPaginationType": "full_numbers",
+      "sPaginationType": "bootstrap",
       "fnServerData"    : simpleDatatables
     });
