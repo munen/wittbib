@@ -12,7 +12,7 @@ gem 'therubyracer', '0.9.8'
 
 # gems in alphabetic order
 gem 'exception_notification_rails3', '1.2.0', :require => 'exception_notifier'
-gem 'jquery-rails', '1.0.13'
+gem 'jquery-rails', '2.0.2'
 gem 'inherited_resources', '1.3.0'
 gem 'rake', '0.9.2'
 
