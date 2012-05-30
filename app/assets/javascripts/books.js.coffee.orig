@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 $ ->
+  $('#query').change((event) ->
+    console.log(event)
+  )
+
   $("#books").dataTable({
       "sAjaxSource"     : "/books/search.datatables",
       "aaSorting"       : [[0, 'asc']],
@@ -12,3 +17,5 @@ $ ->
       "fnServerData"    : simpleDatatables,
       "sPaginationType": "full_numbers"
     });
+=======
+>>>>>>> 36da6ea075810b513218f544b084c5772d3d42ca

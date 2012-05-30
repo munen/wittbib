@@ -10,10 +10,64 @@
 // Include twitter bootstraps's javascripts
 //= require bootstrap
 
-//= require isbn-groups
 //= require isbn
 //= require books
 //= require simple_datatables
 
 //= require_tree .
 
+$(function() {
+
+  $(document).bind('keyup', function(e) {
+    if(event.keyCode==27) { // ESC
+      $('#query').focus().val('');
+    }
+  });
+
+  $('#query').keyup(function(event) {
+    var feedback = $('#feedback');
+    var query = $(this).val();
+    feedback.removeClass('success').addClass('warning');
+    if(query=='') {
+      feedback.removeClass('warning');
+    }
+    if(validateISBN(query)) {
+      feedback.addClass('success');
+      console.log(query); // TODO
+      $('#progress').show();
+      $.ajax('/books/new?book[isbn]='+query, {
+        success: function(data, textStatus, jqXHR) {
+          $('#content').html('').append(data);
+          $('#progress').hide();
+
+          $('#progress').show();
+          $.ajax('/api/books/'+query, {
+            error: function(data) {
+              alert('Error: '+data);
+            },
+            success: function(data) {
+              console.log(data);
+              var keys = ['authors', 'title', 'description', 'isbn_10',
+                          'isbn_13', 'language', 'page_count',
+                          'published_date', 'publisher'];
+                $(keys).each(function(index, key) {
+                  $('#book_'+key).val(data[key]);
+                });
+              $('#progress').hide();
+            }
+          });
+        }
+      });
+    }
+    // match regex for user id
+    // match regex for location id
+  });
+
+  $(".form-search input[type='submit']").hide();
+  $('#progress').hide();
+
+  // for testing
+  // $('#query').val('3150094976').keyup();
+
+
+});

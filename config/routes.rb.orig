@@ -2,10 +2,15 @@ WittBib::Application.routes.draw do
 
   resources :customers
 
-  get "api/books/:isbn" => 'api/books#search'
+<<<<<<< HEAD
+  get "api/book/:isbn" => 'api/books#search'
   resources :books do
     collection { get :search }
   end
+=======
+  get "api/books/:isbn" => 'api/books#search'
+  resources :books
+>>>>>>> 36da6ea075810b513218f544b084c5772d3d42ca
 
   root :to => 'books#index'
 

@@ -1,8 +1,14 @@
-= semantic_form_for resource, :html => { :class => 'form-horizontal' } do |f|
-  = f.inputs do
-    = f.input :author, :label => "Autor"
-    = f.input :title, :label => "Titel"
-    = f.input :isbn, :label => "ISBN"
-    = f.input :description, :label => "Beschreibung"
-  = f.actions do
-    = f.action :submit, :as => :button, :label => "Lege neues Buch an"
+=semantic_form_for resource, :html => { :class => 'form-horizontal' } do |f|
+  =f.inputs do
+    =f.input :title, :label => "Titel"
+    =f.input :authors, :label => "Autor"
+    =f.input :page_count, :label => "Seitenzahl"
+    =f.input :language, :label => "Sprache"
+    =f.input :description, :label => "Beschreibung"
+    =f.input :published_date, :label => "Veroeffentl."
+    =f.input :publisher, :label => "Verlag"
+    =f.input :isbn, :as => :hidden
+    =f.input :isbn_10, :label => "ISBN 10"
+    =f.input :isbn_13, :label => "ISBN 13"
+  =f.actions do
+    =f.action :submit, :as => :button, :label => "Lege neues Buch an"

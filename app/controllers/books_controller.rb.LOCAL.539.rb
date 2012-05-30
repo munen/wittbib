@@ -2,11 +2,6 @@ class BooksController < InheritedResources::Base
 
   respond_to :html, :datatables
 
-  def new
-    resource = Book.new(params[:book])
-    new!
-  end
-
 
   def create
     create! { collection_path }
