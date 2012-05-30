@@ -13,6 +13,7 @@
 //= require isbn-groups
 //= require isbn
 //= require books
+//= require simple_datatables
 
 //= require_tree .
 

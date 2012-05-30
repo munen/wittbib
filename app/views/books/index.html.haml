@@ -1,17 +1,15 @@
 = link_to "Neues Buch erfassen", new_resource_path, :class => "btn primary small"
 
-%table.table.table-striped.table-condensed
+%table.table.table-striped.table-condensed#books
   %thead
     %tr
       %th Autor
       %th Titel
       %th ISBN
       %th Beschreibung
-  %tbody
-    - for record in collection
-      %tr
-        %td=record.author
-        %td=record.title
-        %td=record.isbn
-        %td=record.description
-        %td= button_to "Löschen", record, :confirm => "Sind Sie sicher?", :method => :delete
+      %th Edit
+
+-# rows are filled in by datatables
+
+
+-#%td= button_to "Löschen", record, :confirm => "Sind Sie sicher?", :method => :delete
