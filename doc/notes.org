@@ -1,0 +1,10 @@
+books = GoogleBooks.search('isbn:9781443411080') # yields a collection of one result
+book = books.first
+book.title
+
+GoogleBooks.search('isbn:3150094976').first.title
+
+
+https://github.com/cyu/rack-cors
+
+http://code.google.com/p/isbnjs/downloads/list
