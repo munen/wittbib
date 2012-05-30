@@ -14,8 +14,10 @@
       .navbar-inner
         .container
           %ul.nav
+            %li=image_tag 'logo.png'
             %li
               = link_to 'Katalog', books_path
+            %li
               = link_to 'Kunden', customers_path
 
           %ul.nav.pull-right
