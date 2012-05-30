@@ -6,6 +6,8 @@ $ ->
       "aoColumns"       : [
         {"sName":"authors"},
         {"sName":"title"},
+        {"sName":""},
+        {"sName":""},
         {"sName":"description"},
       ],
       "bServerSide"     : true,

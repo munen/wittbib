@@ -8,4 +8,9 @@ class Book < ActiveRecord::Base
     :uniqueness => true,
     :allow_blank => true
 
+
+  def isbn
+    @isbn || isbn_13 || isbn_10
+  end
+
 end
