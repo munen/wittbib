@@ -20,6 +20,8 @@
 
           %ul.nav.pull-right
             %li
+              #progress=image_tag 'book.gif'
+            %li
               %form.form-search
                 #feedback.control-group
                   =search_field_tag :query, '', :class => 'search-query', :placeholder => t('.search_placeholder')

@@ -13,12 +13,17 @@
 ActiveRecord::Schema.define(:version => 20120530104937) do
 
   create_table "books", :force => true do |t|
-    t.string   "author"
+    t.string   "authors"
     t.string   "title"
-    t.string   "isbn"
+    t.string   "isbn_10"
+    t.string   "isbn_13"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "language"
+    t.string   "page_count"
+    t.string   "published_date"
+    t.string   "publisher"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "customers", :force => true do |t|
@@ -30,13 +35,6 @@ ActiveRecord::Schema.define(:version => 20120530104937) do
     t.boolean  "is_library_visitor"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end
