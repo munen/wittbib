@@ -4,7 +4,10 @@ WittBib::Application.routes.draw do
 
   get "api/books/:isbn" => 'api/books#search'
   resources :books do
-    collection { get :search }
+    collection do
+      get :search
+      get :query
+    end
   end
 
   root :to => 'books#index'

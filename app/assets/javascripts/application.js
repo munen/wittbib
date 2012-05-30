@@ -32,32 +32,8 @@ $(function() {
       feedback.removeClass('warning');
     }
     if(validateISBN(query)) {
-      feedback.addClass('success');
-      console.log(query); // TODO
-      $('#progress').show();
-      $.ajax('/books/new?book[isbn]='+query, {
-        success: function(data, textStatus, jqXHR) {
-          $('#content').html('').append(data);
-          $('#progress').hide();
-
-          $('#progress').show();
-          $.ajax('/api/books/'+query, {
-            error: function(data) {
-              alert('Error: '+data);
-            },
-            success: function(data) {
-              console.log(data);
-              var keys = ['authors', 'title', 'description', 'isbn_10',
-                          'isbn_13', 'language', 'page_count',
-                          'published_date', 'publisher'];
-                $(keys).each(function(index, key) {
-                  $('#book_'+key).val(data[key]);
-                });
-              $('#progress').hide();
-            }
-          });
-        }
-      });
+      feedback.removeClass('warning').addClass('success');
+      queryBooksInternally(query);
     }
     // match regex for user id
     // match regex for location id
@@ -69,5 +45,34 @@ $(function() {
   // for testing
   // $('#query').val('3150094976').keyup();
 
+  function queryBooksInternally(isbn) {
+    $('#progress').show();
+    $.ajax('/books/new?book[isbn]='+isbn, {
+      success: function(data, textStatus, jqXHR) {
+        $('#content').html('').append(data);
+        $('#progress').hide();
+        queryGoogle(isbn);
+      }
+    });
+  }
+
+  function queryGoogle(isbn) {
+    $('#progress').show();
+    $.ajax('/api/books/'+isbn, {
+      error: function(data) {
+        alert('Error: '+data);
+      },
+      success: function(data) {
+        console.log(data);
+        var keys = ['authors', 'title', 'description', 'isbn_10',
+                    'isbn_13', 'language', 'page_count',
+                    'published_date', 'publisher'];
+        $(keys).each(function(index, key) {
+          $('#book_'+key).val(data[key]);
+        });
+        $('#progress').hide();
+      }
+    });
+  }
 
 });
