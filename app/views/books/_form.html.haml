@@ -1,3 +1,8 @@
 = semantic_form_for resource do |f|
-  = f.inputs
-  = f.buttons
+  = f.inputs do
+    = f.input :author, :label => "Autor"
+    = f.input :title, :label => "Titel"
+    = f.input :isbn, :label => "ISBN"
+    = f.input :description, :label => "Beschreibung"
+  = f.actions do
+    = f.action :submit, :as => :button, :label => "Lege neues Buch an"
