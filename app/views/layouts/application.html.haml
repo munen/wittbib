@@ -4,17 +4,39 @@
   %head
     %title WittBib
     = stylesheet_link_tag :application
-    = javascript_include_tag :application 
+    = javascript_include_tag :application
     = csrf_meta_tag
     %meta{'charset' => 'utf-8'}/
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
   %body
-    #content
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-      = yield
-    #footer
-      = "Rails #{Rails.version}, ruby #{RUBY_VERSION} p#{RUBY_PATCHLEVEL} [#{RUBY_PLATFORM}]"
-      
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %ul
+            %li
+              = link_to 'Home', root_path
 
+          -#%ul#user_nav.nav.pull-right
+          -#  - if user_signed_in?
+          -#    %li.info= "Signed in as #{current_user.email}"
+          -#    %li= link_to "Sign out", destroy_user_session_path
+          -#  - else
+          -#    %li= link_to "Sign in", new_user_session_path
+
+    #flash.container
+      .row
+        .offset2.span8
+          - flash.each do |name, msg|
+            - clazz = (name == :notice) ? "success" : "error"
+            .alert{ :class => "alert-#{clazz}" }
+              .close{ 'data-dismiss' => "alert" }×
+              = msg
+
+    .container
+      .row
+        .span12#content= yield
+
+      %footer
+        wittbib by
+        != link_to "panter llc", "http://www.panter.ch", :target => :blank

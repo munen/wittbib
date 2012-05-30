@@ -1,0 +1,15 @@
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th Author
+      %th Title
+      %th ISBN
+      %th Description
+  %tbody
+    - for record in collection
+      %tr
+        %td=record.author
+        %td=record.title
+        %td=record.isbn
+        %td=record.description
+        %td= button_to "Delete", record, :confirm => "Are you sure?", :method => :delete
