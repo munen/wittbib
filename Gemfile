@@ -24,6 +24,7 @@ gem 'formtastic-bootstrap',
 gem 'formtastic',
   :git => 'git://github.com/justinfrench/formtastic.git',
   :branch => '2.1-stable'
+gem 'font-awesome-rails'
 
 
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
