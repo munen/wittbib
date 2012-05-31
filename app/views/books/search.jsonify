@@ -4,7 +4,8 @@ collection.each do |book|
   json << [book.authors,
            book.title,
            book.isbn,
-           link_to("Ändern", edit_book_path(book), :class => "btn small"),
-           link_to("Löschen", book_path(book), :class => "btn small",
+           link_to(raw("<i class='icon-book'></i>"), book_path(book)),
+           link_to(raw("<i class='icon-edit'></i>"), edit_book_path(book)),
+           link_to(raw("<i class='icon-trash'></i>"), book_path(book),
              :method => :delete, :confirm => "Sind Sie sicher?"),]
 end
