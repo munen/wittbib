@@ -53,7 +53,7 @@ $(function() {
       success: function(data, textStatus, jqXHR) {
         $('#content').html('').append(data);
         $('#progress').hide();
-        if($('#new_book').length > 0) { queryGoogle(isbn) };
+        if($('#new_book').length > 0) { queryGoogle(isbn); };
       }
     });
   }
@@ -72,7 +72,10 @@ $(function() {
         $(keys).each(function(index, key) {
           $('#book_'+key).val(data[key]);
         });
+        try { $('#book_image_url').val(data.item.volumeInfo.imageLinks.thumbnail); }
+        catch(e) {}; // ignore
         $('#progress').hide();
+        $("#new_book button[type='submit']").click();
       }
     });
   }

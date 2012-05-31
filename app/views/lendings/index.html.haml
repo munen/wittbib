@@ -1,0 +1,21 @@
+%h1 Listing lendings
+%table
+  %tr
+    %th Book
+    %th Customer
+    %th Taken at
+    %th Returned at
+    %th
+    %th
+    %th
+  - @lendings.each do |lending|
+    %tr
+      %td= lending.book_id
+      %td= lending.customer_id
+      %td= lending.taken_at
+      %td= lending.returned_at
+      %td= link_to 'Show', lending
+      %td= link_to 'Edit', edit_lending_path(lending)
+      %td= link_to 'Destroy', lending, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New Lending', new_lending_path

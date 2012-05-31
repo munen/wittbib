@@ -6,10 +6,10 @@ class BooksController < InheritedResources::Base
     new!
   end
 
-
-  def create
-    create! { collection_path }
-  end
+  #def create
+    #create! { :notice => t('book_created', :delete_link => 'asdf') }
+    #link_to t('delete_book'), , :method => :delete) }
+  #end
 
   # GET /books/search
   def search

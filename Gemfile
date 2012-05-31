@@ -25,12 +25,10 @@ gem 'formtastic',
   :git => 'git://github.com/justinfrench/formtastic.git',
   :branch => '2.1-stable'
 
-
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
-
 gem "simple_datatables"#, :git => "https://github.com/terreActive/simple_datatables"
 gem "will_paginate"
-
+gem 'chosen-rails'
 gem 'googlebooks'
 
 # Bundle gems for the local environment. Make sure to
@@ -46,6 +44,8 @@ group :development, :test do
   gem 'guard-spork'
   gem 'factory_girl_rails'
   gem 'capistrano', '2.8.0'
+
+  gem 'erb2haml'
 end
 
 group :production do

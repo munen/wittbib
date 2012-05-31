@@ -1,5 +1,7 @@
 WittBib::Application.routes.draw do
 
+  resources :lendings
+
   resources :customers
 
   get "api/books/:isbn" => 'api/books#search'

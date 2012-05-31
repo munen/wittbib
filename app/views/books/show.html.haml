@@ -1,5 +1,33 @@
-%h3=resource.authors + " - " + resource.title
+.row
+  .span8
+    %h3 #{resource.authors}: #{resource.title}
+  .span4
+    #state.pull-right.label{ :class => 'label-success' }=resource.state
 
-TODO
+.row
+  .span8
+    %table#book-table
+      %tr
+        %td Seitenzahl
+        %td #{resource.page_count}
+      %tr
+        %td Sprache
+        %td #{resource.language}
+      %tr
+        %td Veroeffentlichung
+        %td #{resource.published_date}
+      %tr
+        %td Verlag
+        %td #{resource.publisher}
+      %tr
+        %td ISBN
+        %td #{resource.isbn}
+      %tr
+        %td Beschreibung
+        %td #{resource.description}
 
--#=image_tag resource.image_url
+  .span4
+    .pull-right=image_tag resource.image_url
+
+
+

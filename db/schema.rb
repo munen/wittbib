@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530104937) do
+ActiveRecord::Schema.define(:version => 20120531075521) do
 
   create_table "books", :force => true do |t|
     t.string   "authors"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120530104937) do
     t.string   "publisher"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "image_url"
   end
 
   create_table "customers", :force => true do |t|
@@ -35,6 +36,15 @@ ActiveRecord::Schema.define(:version => 20120530104937) do
     t.boolean  "is_library_visitor"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "lendings", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "customer_id"
+    t.datetime "taken_at"
+    t.datetime "returned_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

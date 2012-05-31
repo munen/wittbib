@@ -1,12 +1,14 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+de:
   hello: "Hello world"
-  available: available
-  not_available: not available
+  available: Vorhanden
+  not_available: Ausgeliegen
+  book_created: |
+    Achtung, dieses Buch wurde soeben neu erfasst. %{delete_link}
 
   layouts:
     application:
-      search: Search
-      search_placeholder: ISBN, Location ID or User ID
+      search: Suche
+      search_placeholder: ISBN, Standort oder Kunde
