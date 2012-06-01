@@ -23,10 +23,9 @@ class BooksController < InheritedResources::Base
 
       # get the key which contains the query
       t_key = params[:search].keys.reject { |k| !k.include? "_sw" }.first
-      val = params[:search][t_key]
 
       # delete _sw key and inject _contains key
-      params[:search].delete t_key
+      val = params[:search].delete t_key
       key = t_key.gsub("_sw", "_contains")
       params[:search][key] = val
       params[:search].freeze
