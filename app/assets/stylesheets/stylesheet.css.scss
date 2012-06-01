@@ -1,5 +1,8 @@
 // first three columns have arrows
-#books thead th:nth-child(-n+3):before  {
-   content: "⇅ ";
-}
+#books thead {
+  th { cursor: pointer; }
 
+  th:nth-child(-n+3):before  {
+    content: "⇅ ";
+  }
+}
