@@ -18,4 +18,5 @@
         %td=record.district
         %td=record.email
         %td=record.is_library_visitor
-        %td= button_to "Löschen", record, :confirm => "Sind Sie sicher?", :method => :delete
+        %td= link_to(raw("<i class='icon-trash'></i>"), record,
+          :method => :delete, :confirm => "Sind Sie sicher?")

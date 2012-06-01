@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
 
+  default_scope :order => 'authors ASC'
+
   has_many :lendings
 
   attr_accessor :isbn
