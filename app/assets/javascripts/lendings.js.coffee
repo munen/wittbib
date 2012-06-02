@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+#$ ->
+#  $('*[data-chosen]').each((index) ->
+#      no_results_text = $(this).attr("data-no-result-text")
+#      $(this).chosen({no_results_text: no_results_text })
+#  )

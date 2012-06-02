@@ -1,21 +1,15 @@
-%h1 Listing lendings
-%table
-  %tr
-    %th Book
-    %th Customer
-    %th Taken at
-    %th Returned at
-    %th
-    %th
-    %th
-  - @lendings.each do |lending|
+%table.table.table-striped.table-condensed
+  %thead
     %tr
-      %td= lending.book_id
-      %td= lending.customer_id
-      %td= lending.taken_at
-      %td= lending.returned_at
-      %td= link_to 'Show', lending
-      %td= link_to 'Edit', edit_lending_path(lending)
-      %td= link_to 'Destroy', lending, :confirm => 'Are you sure?', :method => :delete
-%br/
-= link_to 'New Lending', new_lending_path
+      %th Buch
+      %th Kunde
+      %th Ausgeliehen am
+      %th
+  %tbody
+    - for record in collection
+      %tr
+        %td=record.book.authors + " - " + record.book.title
+        %td=record.customer.name
+        %td=record.taken_at.to_date
+        %td=button_to "Zurückgeben", record, :confirm => "Sind Sie sicher?",
+          :method => :delete

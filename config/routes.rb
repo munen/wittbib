@@ -1,11 +1,11 @@
 WittBib::Application.routes.draw do
 
-  resources :lendings
-
   resources :customers
 
   get "api/books/:isbn" => 'api/books#search'
+  resources :lendings, :only => [:index, :destroy]
   resources :books do
+    resources :lendings, :except => [:index, :destroy]
     collection do
       get :search
       get :query

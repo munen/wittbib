@@ -15,6 +15,8 @@
 //= require books
 //= require simple_datatables
 
+//= require chosen-jquery
+
 //= require_tree .
 
 $(function() {
@@ -57,7 +59,7 @@ $(function() {
       }
     });
   }
-  
+
   function queryGoogle(isbn) {
     $('#progress').show();
     $.ajax('/api/books/'+isbn, {

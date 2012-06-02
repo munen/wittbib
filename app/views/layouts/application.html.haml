@@ -19,6 +19,8 @@
               = link_to 'Katalog', books_path
             %li
               = link_to 'Kunden', customers_path
+            %li
+              = link_to 'Verliehen', lendings_path
 
           %ul.nav.pull-right
             %li{ :style => 'color:white' } 0199537283 2718607718 3787314644
@@ -52,5 +54,5 @@
         .span12#content= yield
 
       %footer.pull-right
-        WittBib von 
+        WittBib von
         != link_to "Panter llc", "http://www.panter.ch", :target => :blank

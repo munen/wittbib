@@ -1,27 +1,5 @@
-= form_for(@lending) do |f|
-  - if @lending.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@lending.errors.count, "error")
-        prohibited this lending from being saved:
-      %ul
-        - @lending.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :book_id
-    %br/
-    = f.number_field :book_id
-  .field
-    = f.label :customer_id
-    %br/
-    = f.number_field :customer_id
-  .field
-    = f.label :taken_at
-    %br/
-    = f.datetime_select :taken_at
-  .field
-    = f.label :returned_at
-    %br/
-    = f.datetime_select :returned_at
-  .actions
-    = f.submit
+= semantic_form_for resource, :url => book_lending_path, :html => { :class => 'form-horizontal' } do |f|
+  = f.inputs do
+    = f.input :customer, :label => "Kunde"#, :input_html => { 'data-chosen' => true }
+  = f.actions do
+    = f.action :submit, :as => :button, :label => "Leihe Buch aus"
