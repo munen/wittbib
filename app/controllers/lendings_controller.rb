@@ -13,4 +13,20 @@ class LendingsController < InheritedResources::Base
     end
   end
 
+  # return a lent book
+  def cancel
+    @lending = Lending.find params[:id]
+    @lending.returned_at = DateTime.now
+    if @lending.save
+      redirect_to lendings_path, :notice => "Buch ist wieder verfügbar"
+    else
+      redirect_to lendings_path, :alert => "Fehler beim Zurückgeben"
+    end
+  end
+
+
+  def collection
+    @lendings ||= Lending.not_available
+  end
+
 end

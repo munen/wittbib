@@ -3,9 +3,11 @@ WittBib::Application.routes.draw do
   resources :customers
 
   get "api/books/:isbn" => 'api/books#search'
-  resources :lendings, :only => [:index, :destroy]
+  resources :lendings, :only => [:index] do
+    member { put :cancel, :as => :return_book }
+  end
   resources :books do
-    resources :lendings, :except => [:index, :destroy]
+    resources :lendings, :except => [:index]
     collection do
       get :search
       get :query
