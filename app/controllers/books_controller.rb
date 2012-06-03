@@ -17,19 +17,20 @@ class BooksController < InheritedResources::Base
     # datatables sends a search request like param1_or_param2_sw
     # '_sw' stands for 'starts with'. but since we want to have a full text
     # search, here a _contains is injected to induce a 'like' query.
-    if params[:search].keys.join(" ") =~ /_sw/
-      # params is a frozen hash in rails. this is a workaround.
-      params[:search] = params[:search].dup
+    #
+    # params is a frozen hash in rails. this is a workaround.
+    params_search = params[:search].dup
+    if params_search.keys.any? { |k| k.match(/_sw/) }
 
       # get the key which contains the query
-      t_key = params[:search].keys.reject { |k| !k.include? "_sw" }.first
+      t_key = params_search.keys.reject { |k| !k.include? "_sw" }.first
 
       # delete _sw key and inject _contains key
-      val = params[:search].delete t_key
+      val = params_search.delete t_key
       key = t_key.gsub("_sw", "_contains")
-      params[:search][key] = val
-      params[:search].freeze
+      params_search[key] = val
     end
+    params[:search] = params_search
 
     @books = Book.search(params[:search]).
       paginate(:page => params[:page],
