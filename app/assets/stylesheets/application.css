@@ -5,6 +5,7 @@
  *= require_self
  *= require stylesheet
  *= require app_bootstrap
+ *= require lendings
  *= require formtastic
  *= require formtastic_changes
  *= require 'font-awesome'

@@ -4,12 +4,14 @@
       %th Buch
       %th Kunde
       %th Ausgeliehen am
+      %th Überschritten
       %th
   %tbody
     - for record in collection
-      %tr
+      %tr{:class => record.is_overdue? ? 'overdue' : 'not_overdue'}
         %td=record.book.authors + " - " + record.book.title
         %td=record.customer.name
         %td=record.taken_at.to_date
+        %td
         %td=button_to "Zurückgeben", record, :confirm => "Sind Sie sicher?",
           :method => :delete

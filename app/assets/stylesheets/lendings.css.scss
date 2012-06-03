@@ -1,3 +1,6 @@
-// Place all the styles related to the lendings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.overdue td:nth-child(4) {
+  background: #ff5260 !important;
+}
+.not_overdue td:nth-child(4) {
+  background: lightgreen !important;
+}
