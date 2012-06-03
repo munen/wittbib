@@ -16,6 +16,7 @@
 //= require simple_datatables
 
 //= require chosen-jquery
+//= require init_chosen
 
 //= require_tree .
 

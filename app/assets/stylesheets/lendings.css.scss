@@ -4,3 +4,29 @@
 .not_overdue td:nth-child(4) {
   background: lightgreen !important;
 }
+
+#new_lending .inputs {
+  height: 340px;
+  #lending_submit {
+    position: relative;
+    top: -45px;
+    left: 393px
+  }
+}
+
+#lendings thead {
+  th { cursor: pointer; }
+
+  // no linebreaks in table head
+  th:nth-child(2) {
+    min-width: 80px;
+  }
+  th:nth-child(3) {
+    min-width: 140px;
+  }
+  // first three columns have arrows
+  th:nth-child(-n+3):before  {
+    content: "⇅ ";
+  }
+}
+

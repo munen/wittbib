@@ -5,6 +5,8 @@
  *= require_self
  *= require stylesheet
  *= require app_bootstrap
+ *= require chosen
+ *= require books
  *= require lendings
  *= require formtastic
  *= require formtastic_changes

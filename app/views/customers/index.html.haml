@@ -18,5 +18,7 @@
         %td=record.district
         %td=record.email
         %td=boolean_checkbox(record.is_library_visitor)
+        %td= link_to(raw("<i class='icon-edit'></i>"),
+          edit_customer_path(record))
         %td= link_to(raw("<i class='icon-trash'></i>"), record,
           :method => :delete, :confirm => "Sind Sie sicher?")
