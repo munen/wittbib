@@ -15,4 +15,5 @@ class Book < ActiveRecord::Base
     lendings.not_available.any? ? t('not_available') : t('available')
   end
 
+
 end

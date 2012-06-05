@@ -54,10 +54,15 @@ class BooksController < InheritedResources::Base
     end
   end
 
+  #def collection
+  #  Book.includes(:lendings).collect { |b| b if !b.lendings.empty? }.compact
+  #end
+
   private
 
   def normalize_isbn(isbn)
     isbn.tr_s('- ','')
   end
+
 
 end
