@@ -74,5 +74,5 @@ WittBib::Application.configure do
   config.middleware.use ExceptionNotifier,
       :email_prefix => "[WittBib] ",
       :sender_address => %{"notifier" <panter@mailantor.com>},
-      :exception_recipients => %w(panter@mailinator.com)
+      :exception_recipients => %w(aml@panter.ch)
 end
