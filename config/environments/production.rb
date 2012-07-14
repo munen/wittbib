@@ -45,10 +45,10 @@ WittBib::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
-   
+
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
-   
+
   # Generate digests for assets URLs
   config.assets.digest = true
 
@@ -57,6 +57,19 @@ WittBib::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # config needed for gmail
+  require 'tlsmail'
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :port           => '587',
+    :domain         => ENV['GMAIL_USER'],
+    :user_name      => ENV['GMAIL_USER'],
+    :password       => ENV['GMAIL_PASSWORD'],
+    :authentication => :plain
+  }
 
   config.middleware.use ExceptionNotifier,
       :email_prefix => "[WittBib] ",
