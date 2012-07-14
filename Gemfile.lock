@@ -96,9 +96,6 @@ GEM
       multi_json (~> 1.0)
     factory_girl (2.5.0)
       activesupport
-    factory_girl_rails (1.6.0)
-      factory_girl (~> 2.5.0)
-      railties (>= 3.0.0)
     ffi (1.0.11)
     font-awesome-rails (0.2.1)
       railties (~> 3.1)
@@ -280,7 +277,7 @@ DEPENDENCIES
   devise
   erb2haml
   exception_notification_rails3 (= 1.2.0)
-  factory_girl_rails
+  factory_girl
   font-awesome-rails
   formtastic!
   formtastic-bootstrap!

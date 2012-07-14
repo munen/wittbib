@@ -40,7 +40,7 @@ group :development, :test do
   gem 'capistrano', '2.8.0'
   gem 'capybara', '1.1.1'
   gem 'erb2haml'
-  gem 'factory_girl_rails'
+  gem 'factory_girl'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'rspec-rails', '2.8.1'
