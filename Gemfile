@@ -18,7 +18,6 @@ gem 'inherited_resources', '1.3.0'
 gem 'jquery-rails', '2.0.2'
 gem 'rake', '0.9.2'
 
-gem 'ruby-debug19'
 
 gem 'formtastic-bootstrap',
   :git => 'git://github.com/cgunther/formtastic-bootstrap.git',
@@ -38,17 +37,17 @@ gem 'googlebooks'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-  gem 'yard'
-  gem 'rspec-rails', '2.8.1'
+  gem 'capistrano', '2.8.0'
   gem 'capybara', '1.1.1'
-  gem 'spork', "0.9.0.rc9"
+  gem 'erb2haml'
+  gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'factory_girl_rails'
-  gem 'capistrano', '2.8.0'
-
-  gem 'erb2haml'
+  gem 'rspec-rails', '2.8.1'
+  gem 'ruby-debug19'
+  gem 'spork', "0.9.0.rc9"
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'yard'
 end
 
 group :production do
