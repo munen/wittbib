@@ -16,7 +16,7 @@ gem 'exception_notification_rails3', '1.2.0', :require => 'exception_notifier'
 gem 'heroku'
 gem 'inherited_resources', '1.3.0'
 gem 'jquery-rails', '2.0.2'
-gem 'rake', '0.9.2'
+gem 'rake', '0.9.2.2'
 
 
 gem 'formtastic-bootstrap',
