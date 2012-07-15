@@ -69,16 +69,29 @@ $(function() {
       },
       success: function(data) {
         console.log(data);
-        var keys = ['authors', 'title', 'description', 'isbn_10',
-                    'isbn_13', 'language', 'page_count',
-                    'published_date', 'publisher'];
-        $(keys).each(function(index, key) {
-          $('#book_'+key).val(data[key]);
-        });
-        try { $('#book_image_url').val(data.item.volumeInfo.imageLinks.thumbnail); }
-        catch(e) {}; // ignore
-        $('#progress').hide();
-        $("#new_book button[type='submit']").click();
+        if (data) {
+          var keys = ['authors', 'title', 'description', 'isbn_10',
+                      'isbn_13', 'language', 'page_count',
+                      'published_date', 'publisher'];
+          $(keys).each(function(index, key) {
+            $('#book_'+key).val(data[key]);
+          });
+          try { $('#book_image_url').val(data.item.volumeInfo.imageLinks.thumbnail); }
+          catch(e) {}; // ignore
+          $('#progress').hide();
+          $("#new_book button[type='submit']").click();
+        } else {
+          // no book metadata could be found
+          $("#progress").hide();
+          // only show notice once
+          if(!$("#feedback p").length) {
+            $("#feedback").append("<p>Keine Buchmetadaten gefunden</p>");
+            setTimeout(function() {
+              $("#feedback p").remove();
+            }, 5000);
+          }
+
+        }
       }
     });
   }
