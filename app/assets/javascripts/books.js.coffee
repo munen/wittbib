@@ -12,6 +12,7 @@ $ ->
         {"sName":"description"},
       ],
       "bServerSide"     : true,
+      "bRetrieve"       : true,
       "sPaginationType": "full_numbers",
       "sPaginationType": "bootstrap",
       "oLanguage": {
