@@ -13,6 +13,14 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
+          %ul#user_nav.nav.pull-right
+            - if user_signed_in?
+              %li.info= "Signed in as #{current_user.email}"
+              %li= link_to "Sign out", destroy_user_session_path
+          -#  - else
+          -#    %li= link_to "Sign in", new_user_session_path
+
+        .container
           %ul.nav
             %li=link_to image_tag('logo.png'), books_path
             %li
@@ -32,13 +40,6 @@
                   =search_field_tag :query, '', :class => 'search-query',
                     :placeholder => t('.search_placeholder'), :autocomplete => "off"
                   =submit_tag t('.search')
-
-          -#%ul#user_nav.nav.pull-right
-          -#  - if user_signed_in?
-          -#    %li.info= "Signed in as #{current_user.email}"
-          -#    %li= link_to "Sign out", destroy_user_session_path
-          -#  - else
-          -#    %li= link_to "Sign in", new_user_session_path
 
     #flash.container
       .row

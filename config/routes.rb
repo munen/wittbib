@@ -1,5 +1,7 @@
 WittBib::Application.routes.draw do
 
+  devise_for :users
+
   resources :customers
 
   get "api/books/:isbn" => 'api/books#search'

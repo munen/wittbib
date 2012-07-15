@@ -62,4 +62,6 @@ WittBib::Application.configure do
       :email_prefix => "[WittBib] ",
       :sender_address => %{"notifier" <panter@mailantor.com>},
       :exception_recipients => %w(aml@panter.ch)
+
+  config.action_mailer.default_url_options = { :host => 'wittbib.heroku.com' }
 end
