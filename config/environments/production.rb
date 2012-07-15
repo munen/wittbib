@@ -59,30 +59,20 @@ WittBib::Application.configure do
   config.active_support.deprecation = :notify
 
   # config needed for gmail
-  #require 'net/smtp'
-  #Net.instance_eval {remove_const :SMTPSession} if defined?(Net::SMTPSession)
+  require 'tlsmail'
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :port           => '587',
+    :domain         => ENV['GMAIL_USER'],
+    :user_name      => ENV['GMAIL_USER'],
+    :password       => ENV['GMAIL_PASSWORD'],
+    :authentication => :plain
+  }
 
-  #require 'net/pop'
-  #Net::POP.instance_eval {remove_const :Revision} if defined?(Net::POP::Revision)
-  #Net.instance_eval {remove_const :POP} if defined?(Net::POP)
-  #Net.instance_eval {remove_const :POPSession} if defined?(Net::POPSession)
-  #Net.instance_eval {remove_const :POP3Session} if defined?(Net::POP3Session)
-  #Net.instance_eval {remove_const :APOPSession} if defined?(Net::APOPSession)
-
-  #require 'tlsmail'
-  #config.action_mailer.raise_delivery_errors = true
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = {
-  #  :address        => 'smtp.gmail.com',
-  #  :port           => '587',
-  #  :domain         => ENV['GMAIL_USER'],
-  #  :user_name      => ENV['GMAIL_USER'],
-  #  :password       => ENV['GMAIL_PASSWORD'],
-  #  :authentication => :plain
-  #}
-
-  #config.middleware.use ExceptionNotifier,
-  #    :email_prefix => "[WittBib] ",
-  #    :sender_address => %{"notifier" <panter@mailantor.com>},
-  #    :exception_recipients => %w(aml@panter.ch)
+  config.middleware.use ExceptionNotifier,
+      :email_prefix => "[WittBib] ",
+      :sender_address => %{"notifier" <panter@mailantor.com>},
+      :exception_recipients => %w(aml@panter.ch)
 end

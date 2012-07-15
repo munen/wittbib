@@ -12,7 +12,7 @@ gem 'therubyracer', '0.9.8'
 
 # gems in alphabetic order
 gem 'devise'
-#gem 'tlsmail', :group => "production"
+gem 'tlsmail'
 gem 'exception_notification_rails3', '1.2.0', :require => 'exception_notifier'
 gem 'heroku'
 gem 'inherited_resources', '1.3.0'
