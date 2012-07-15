@@ -68,6 +68,7 @@ WittBib::Application.configure do
     :domain         => ENV['GMAIL_USER'],
     :user_name      => ENV['GMAIL_USER'],
     :password       => ENV['GMAIL_PASSWORD'],
+    :enable_starttls_auto => true,
     :authentication => :plain
   }
 
