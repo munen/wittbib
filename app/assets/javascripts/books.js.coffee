@@ -15,7 +15,7 @@ $ ->
         {"sName":"isbn_13"},
         {"sName":"show", bSearchable:false,},
         {"sName":"description"},
-        {"sName":"archive"}
+        {"sName":"archive", bSearchable:false}
       ],
       "bServerSide"     : true,
       "bRetrieve"       : true,
