@@ -15,6 +15,15 @@ GIT
     formtastic (2.1.1)
       actionpack (~> 3.0)
 
+GIT
+  remote: git://github.com/preek/simple_datatables.git
+  revision: 92137feee3db74cd4d1483453de6249ab8de6d08
+  specs:
+    simple_datatables (0.2.1)
+      jsonify-rails
+      meta_search (~> 1.1.0)
+      rails (~> 3.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -235,10 +244,6 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     sexp_processor (3.2.0)
-    simple_datatables (0.1.7)
-      jsonify-rails
-      meta_search (~> 1.1.0.pre2)
-      rails (>= 3.1.0.rc8)
     spork (0.9.0.rc9)
     sprockets (2.1.2)
       hike (~> 1.2)
@@ -295,7 +300,7 @@ DEPENDENCIES
   rspec-rails (= 2.8.1)
   ruby-debug19
   sass-rails (= 3.2.3)
-  simple_datatables
+  simple_datatables!
   spork (= 0.9.0.rc9)
   sqlite3-ruby
   therubyracer (= 0.9.8)
