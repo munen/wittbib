@@ -46,7 +46,10 @@
     %tbody
     - resource.lendings.each do |lending|
       %tr
-        %td= link_to lending.customer.name, lending.customer
+        - if lending.customer
+          %td= link_to lending.customer.name, lending.customer
+        - else
+          %td Gelöschter Nutzer
         %td= lending.taken_at.to_date
         %td= lending.try(:returned_at).try(:to_date) || "Noch ausgeliehen"
 
