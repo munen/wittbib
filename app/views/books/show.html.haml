@@ -2,7 +2,7 @@
 %br
 .row
   .span8
-    %h3 #{resource.authors}: #{resource.title}
+    %h2 #{resource.authors}: #{resource.title}
   .span4
     #state.pull-right.label{ :class => 'label-success' }=resource.state
 
@@ -31,5 +31,22 @@
   .span4
     .pull-right= book_cover_picture
 
-
+%br/
+%br/
+.row.well
+  %h3 Historie Ausleihe
+  %strong Anzahl Ausleihen:
+  = resource.lendings.count
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Von
+        %th Ausleihdatum
+        %th Rueckgabedatum
+    %tbody
+    - resource.lendings.each do |lending|
+      %tr
+        %td= link_to lending.customer.name, lending.customer
+        %td= lending.taken_at.to_date
+        %td= lending.try(:returned_at).try(:to_date) || "Noch ausgeliehen"
 
