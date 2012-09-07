@@ -1,17 +1,21 @@
-.pull-right= link_to "Neues Buch erfassen", new_resource_path, :class => "btn primary small"
+.hero-unit
+  .well
+    %h2 Katalog
+    %br
+    .pull-right= link_to "Neues Buch erfassen", new_resource_path, :class => "btn primary small"
 
-%table.table.table-striped.table-condensed#books
-  %thead
-    %tr
-      %th Autoren
-      %th Titel
-      %th ISBN
-      %th= ""
-      %th= ""
-      %th= ""
-      %th= ""
+    %table.table.table-striped.table-condensed#books
+      %thead
+        %tr
+          %th Autoren
+          %th Titel
+          %th ISBN
+          %th= ""
+          %th= ""
+          %th= ""
+          %th= ""
 
--# rows are filled in by datatables
+    -# rows are filled in by datatables
 
 
--#%td= button_to "Löschen", record, :confirm => "Sind Sie sicher?", :method => :delete
+    -#%td= button_to "Löschen", record, :confirm => "Sind Sie sicher?", :method => :delete

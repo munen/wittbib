@@ -1,0 +1,21 @@
+.page-header
+  %h2 Benutzer
+.pull-right
+  =link_to "Erstelle Benutzer", new_resource_path,
+    :class => 'btn primary small'
+
+%table.table.table-striped.table-condensed.display
+  %thead
+    %tr
+      %th Email
+      %th
+      %th
+      %th
+  %tbody
+    - for record in collection
+      %tr
+        %td= record.email
+        %td=link_to raw("<i class='icon-eye-open'></i>"), record
+        %td=link_to raw("<i class='icon-edit'></i>"), edit_resource_path(record)
+        %td=link_to raw("<i class='icon-trash'></i>"), record,
+          :confirm => "Sind Sie sicher?", :method => :delete

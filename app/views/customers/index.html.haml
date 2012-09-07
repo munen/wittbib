@@ -1,24 +1,28 @@
-.pull-right= link_to "Neuen Kunden erfassen", new_resource_path, :class => "btn primary small"
+.hero-unit
+  .well
+    %h2 Kunden
+    %br
+    .pull-right= link_to "Neuen Kunden erfassen", new_resource_path, :class => "btn primary small"
 
-%table.table.table-striped.table-condensed
-  %thead
-    %tr
-      %th Name
-      %th Strasse
-      %th Telephon
-      %th Ortsteil
-      %th E-Mail
-      %th Ist Bibliotheks Benutzer?
-  %tbody
-    - for record in collection
-      %tr
-        %td=record.name
-        %td=record.street
-        %td=record.phone
-        %td=record.district
-        %td=record.email
-        %td=boolean_checkbox(record.is_library_visitor)
-        %td= link_to(raw("<i class='icon-edit'></i>"),
-          edit_customer_path(record))
-        %td= link_to(raw("<i class='icon-trash'></i>"), record,
-          :method => :delete, :confirm => "Sind Sie sicher?")
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Name
+          %th Strasse
+          %th Telephon
+          %th Ortsteil
+          %th E-Mail
+          %th Ist Bibliotheks Benutzer?
+      %tbody
+        - for record in collection
+          %tr
+            %td=record.name
+            %td=record.street
+            %td=record.phone
+            %td=record.district
+            %td=record.email
+            %td=boolean_checkbox(record.is_library_visitor)
+            %td= link_to(raw("<i class='icon-edit'></i>"),
+              edit_customer_path(record))
+            %td= link_to(raw("<i class='icon-trash'></i>"), record,
+              :method => :delete, :confirm => "Sind Sie sicher?")

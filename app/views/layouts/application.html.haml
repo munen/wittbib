@@ -13,34 +13,44 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %ul#user_nav.nav.pull-right
-            - if user_signed_in?
-              %li.info= "Signed in as #{current_user.email}"
-              %li= link_to "Sign out", destroy_user_session_path,
-                :method => :delete
-          -#  - else
-          -#    %li= link_to "Sign in", new_user_session_path
+          - if user_signed_in?
+            %a{:class => 'btn btn-navbar', 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse'}
+              - 3.times do
+                = raw("<span class='icon-bar'></span>")
+          =link_to image_tag('logo.png')
 
-        .container
-          %ul.nav
-            %li=link_to image_tag('logo.png'), books_path
-            %li
-              = link_to 'Katalog', books_path
-            %li
-              = link_to 'Kunden', customers_path
-            %li
-              = link_to 'Verliehen', lendings_path
+          - if user_signed_in?
+            .nav-collapse.collapse
+              %ul.nav
+                %li
+                  = link_to 'Katalog', books_path
+                %li
+                  = link_to 'Kunden', customers_path
+                %li
+                  = link_to 'Verliehen', lendings_path
+                %li
+                  = link_to 'Benutzer', users_path
 
-          %ul.nav.pull-right
-            %li{ :style => 'color:white' } 0199537283 2718607718 3787314644
-            %li
-              #progress=image_tag 'book.gif'
-            %li
-              %form.form-search
-                #feedback.control-group
-                  =search_field_tag :query, '', :class => 'search-query',
-                    :placeholder => t('.search_placeholder'), :autocomplete => "off"
-                  =submit_tag t('.search')
+                -# TODO: RIGHT!
+                #user_nav.nav.pull-right
+                  %li.info= "Angemeldet als #{current_user.email}"
+                  %li= link_to "Abmelden", destroy_user_session_path,
+                    :method => :delete
+
+
+        - if user_signed_in?
+          .container
+            %ul.nav
+
+            %ul.nav.pull-right
+              %li
+                #progress=image_tag 'book.gif'
+              %li
+                %form.form-search
+                  #feedback.control-group
+                    =search_field_tag :query, '', :class => 'search-query',
+                      :placeholder => t('.search_placeholder'), :autocomplete => "off"
+                    =submit_tag t('.search')
 
     #flash.container
       .row

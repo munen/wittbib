@@ -1,4 +1,7 @@
 de:
+  email: E-Mail
+  password: Passwort
+  remember_me: Angemeldet bleiben
   resend_confirmation_instructions: Bestätigungsmail anfordern
   forgot_your_password: "Passwort vergessen?"
   send_me_reset_password_instructions: "Anweisungen senden"

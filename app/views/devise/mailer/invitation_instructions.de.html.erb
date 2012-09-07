@@ -1,0 +1,7 @@
+<p>Hallo <%= @resource.email %>!</p>
+
+<p>Sie wurden auf <%= root_url %> eingeladen. Sie können die Einladung durch Clicken des Links unten annehmen.</p>
+
+<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+
+<p>Falls Sie die Einladung nicht annehmen möchten, bitte ignorieren Sie diese E-Mail.<br />

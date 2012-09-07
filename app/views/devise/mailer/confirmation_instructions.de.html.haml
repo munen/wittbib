@@ -1,0 +1,4 @@
+%p
+  Willkommen #{@resource.email}!
+%p Sie koennen Ihren Account bestaetigen, indem Sie den untenstenden Link klicken:
+%p= link_to 'Bestaetige meinen Account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
