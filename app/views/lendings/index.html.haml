@@ -1,17 +1,19 @@
-%table.table.table-striped.table-condensed#lendings
-  %thead
-    %tr
-      %th Buch
-      %th Kunde
-      %th Ausgeliehen am
-      %th Innerhalb Frist
-      %th
-  %tbody
-    - for record in collection
-      %tr{:class => record.is_overdue? ? 'overdue' : 'not_overdue'}
-        %td=record.book.authors + " - " + record.book.title
-        %td=record.customer.name
-        %td=record.taken_at.to_date
-        %td
-        %td=button_to "Zurückgeben", return_book_lending_path(record),
-          :confirm => "Sind Sie sicher?", :method => :put
+.hero-unit
+  .well
+    %table.table.table-striped.table-condensed#lendings
+      %thead
+        %tr
+          %th Buch
+          %th Kunde
+          %th Ausgeliehen am
+          %th Innerhalb Frist
+          %th
+      %tbody
+        - for record in collection
+          %tr{:class => record.is_overdue? ? 'overdue' : 'not_overdue'}
+            %td=record.book.authors + " - " + record.book.title
+            %td=record.customer.name
+            %td=record.taken_at.to_date
+            %td
+            %td=button_to "Zurückgeben", return_book_lending_path(record),
+              :confirm => "Sind Sie sicher?", :method => :put
