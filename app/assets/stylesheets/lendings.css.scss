@@ -24,9 +24,5 @@
   th:nth-child(3) {
     min-width: 140px;
   }
-  // first three columns have arrows
-  th:nth-child(-n+3):before  {
-    content: "⇅ ";
-  }
 }
 

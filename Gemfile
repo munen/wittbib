@@ -28,7 +28,7 @@ gem 'formtastic',
 gem 'font-awesome-rails'
 
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
-gem "simple_datatables"#, :git => "https://github.com/terreActive/simple_datatables"
+gem "simple_datatables", :git => "git://github.com/preek/simple_datatables.git"
 gem "will_paginate"
 gem 'chosen-rails'
 gem 'googlebooks'

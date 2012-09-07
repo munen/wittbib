@@ -11,6 +11,7 @@
  *= require formtastic
  *= require formtastic_changes
  *= require 'font-awesome'
+ *= require demo_table_jui
 */
 
 #progress {

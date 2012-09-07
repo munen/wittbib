@@ -2,6 +2,11 @@ $ ->
 
   $("#books").dataTable({
       "sAjaxSource"     : "/books/search.datatables",
+      "aoColumnDefs": [
+         { 'bSortable': false, 'aTargets': [ -1, -2, -3 ] },
+         { 'sWidth': '40px', 'aTargets': [ -1, -2, -3 ] }
+       ],
+
       "aaSorting"       : [[0, 'asc']],
       "aoColumns"       : [
         {"sName":"authors"},
@@ -32,5 +37,6 @@ $ ->
             "sLast":     "Letzte Seite"
         }
       },
-      "fnServerData"    : simpleDatatables
+      "fnServerData"    : simpleDatatables,
+      "sDom": 'T<"clear">lfrtip'
     });
