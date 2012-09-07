@@ -2,7 +2,7 @@
   .well
     %h2 Verliehene Bücher
     %br
-    %table.table.table-striped.table-condensed#lendings
+    %table.table.table-striped.table-condensed.datatable
       %thead
         %tr
           %th Buch
@@ -13,8 +13,8 @@
       %tbody
         - for record in collection
           %tr{:class => record.is_overdue? ? 'overdue' : 'not_overdue'}
-            %td=record.book.authors + " - " + record.book.title
-            %td=record.customer.name
+            %td=[record.try(:book).try(:authors), record.try(:book).try(:title)].join ', '
+            %td=record.try(:customer).try(:name)
             %td=record.taken_at.to_date
             %td
             %td=button_to "Zurückgeben", return_book_lending_path(record),

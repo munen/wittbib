@@ -5,7 +5,10 @@ class Book < ActiveRecord::Base
   attr_accessor :isbn
   attr_accessible :authors, :title, :isbn, :isbn_10, :isbn_13,
                   :description, :language, :page_count,
-                  :published_date, :publisher, :image_url
+                  :published_date, :publisher, :image_url,
+                  :deleted_at
+
+  default_scope where(:deleted_at => nil)
 
   def isbn
     @isbn || isbn_13 || isbn_10
@@ -32,5 +35,9 @@ class Book < ActiveRecord::Base
     end
   end
 
+  def mark_as_deleted
+    self.deleted_at = Time.now
+    self.save
+  end
 
 end

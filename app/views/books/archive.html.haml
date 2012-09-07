@@ -1,0 +1,17 @@
+.hero-unit
+  .well
+    %h2 Archiv
+    %br
+
+    %table.table.table-striped.table-condensed.datatable
+      %thead
+        %tr
+          %th Autoren
+          %th Titel
+          %th ISBN
+      %tbody
+        - Book.unscoped.where('deleted_at IS NOT NULL').each do |book|
+          %tr
+            %td= book.authors
+            %td= book.title
+            %td= book.isbn

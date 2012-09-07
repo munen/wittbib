@@ -7,6 +7,6 @@ collection.each do |book|
            link_to(link_to "Leihen", new_book_lending_path(book), :class => 'btn'),
            link_to(raw("<i class='icon-book'></i>"), book_path(book)),
            link_to(raw("<i class='icon-edit'></i>"), edit_book_path(book)),
-           link_to(raw("<i class='icon-trash'></i>"), book_path(book),
+           link_to(raw("<i class='icon-folder-open'></i>"), book_path(book),
              :method => :delete, :confirm => "Sind Sie sicher?"),]
 end

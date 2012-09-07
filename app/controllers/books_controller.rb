@@ -16,7 +16,13 @@ class BooksController < InheritedResources::Base
                   :filename => "book_catalogue_#{Date.today}.csv")
       end
     end
+  end
 
+  def destroy
+    book = Book.find(params[:id])
+    book.mark_as_deleted
+    flash[:notice] = 'Buch erfolgreich archiviert'
+    redirect_to books_path
   end
 
   #def create
