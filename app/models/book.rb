@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
 
-  has_many :lendings
+  has_many :lendings, :dependent => :destroy
 
   attr_accessor :isbn
   attr_accessible :authors, :title, :isbn, :isbn_10, :isbn_13,
