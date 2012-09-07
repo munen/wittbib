@@ -54,6 +54,10 @@ module WittBib
     # accessible parameters by using an attr_accessible or attr_protected
     # declaration.
     config.active_record.whitelist_attributes = true
+
+    # don't initialize rails for asset precompilation
+    # https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar#troubleshooting
+    config.assets.initialize_on_precompile = false
   end
 end
 
