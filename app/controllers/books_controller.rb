@@ -6,9 +6,22 @@ class BooksController < InheritedResources::Base
     new!
   end
 
+  def index
+    respond_to do |format|
+      format.html
+
+      format.csv do
+        send_data(Book.csv,
+                  :type => 'text/csv; charset=iso-8859-1; header=present',
+                  :filename => "book_catalogue_#{Date.today}.csv")
+      end
+    end
+
+  end
+
   #def create
-    #create! { :notice => t('book_created', :delete_link => 'asdf') }
-    #link_to t('delete_book'), , :method => :delete) }
+  #create! { :notice => t('book_created', :delete_link => 'asdf') }
+  #link_to t('delete_book'), , :method => :delete) }
   #end
 
   # GET /books/search

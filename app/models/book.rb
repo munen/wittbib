@@ -15,5 +15,21 @@ class Book < ActiveRecord::Base
     lendings.not_available.any? ? t('not_available') : t('available')
   end
 
+  # Generates CSV
+  def self.csv(search_params = nil)
+    csv = "authors, title, isbn\n"
+    Book.all.each do |e|
+      csv << e.to_csv
+    end
+    csv
+  end
+
+  def to_csv
+    require 'csv'
+    CSV.generate do |csv|
+      csv << [self.authors, self.title, self.isbn]
+    end
+  end
+
 
 end
