@@ -17,7 +17,7 @@ class Book < ActiveRecord::Base
 
   # Generates CSV
   def self.csv(search_params = nil)
-    csv = "authors, title, isbn\n"
+    csv = "Autoren, Titel, ISBN, Sprache, Seitenzahl, Veroeffentlichung, Verlag\n"
     Book.all.each do |e|
       csv << e.to_csv
     end
@@ -27,7 +27,8 @@ class Book < ActiveRecord::Base
   def to_csv
     require 'csv'
     CSV.generate do |csv|
-      csv << [self.authors, self.title, self.isbn]
+      csv << [self.authors, self.title, self.isbn, self.language,
+              self.page_count, self.published_date, self.publisher]
     end
   end
 
