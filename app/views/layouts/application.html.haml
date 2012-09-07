@@ -53,7 +53,7 @@
                     =submit_tag t('.search')
 
     #flash.container
-      .row
+      .hero-unit
         .offset2.span8
           - flash.each do |name, msg|
             - clazz = (name == :notice) ? "success" : "error"
