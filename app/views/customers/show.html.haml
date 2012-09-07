@@ -1,3 +1,23 @@
-%h3= resource.name
+.row
+  .span8
+    %h3 Kunde
 
-Noch zu definieren..
+.row
+  .well.span8
+    %dl
+      %dt Name
+      %dd= resource.name
+      %dt Strasse
+      %dd= resource.street
+      %dt Telephon
+      %dd= resource.phone
+      %dt Ortsteil
+      %dd= resource.district
+      %dt Email
+      %dd= mail_to resource.email
+      %dt Ist Bibliotheks Benutzer?
+      %dd=boolean_checkbox(resource.is_library_visitor)
+
+.row
+  .span8
+    = link_to "Zurück", collection_path, :class => 'btn'

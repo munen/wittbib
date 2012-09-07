@@ -1,23 +1,23 @@
-.row
-  .span8
-    %h3= t resource.class.name
+.hero-unit
+  .well
+    %h3 Benutzer
 
-.row
-  .well.span8
-    %dl
-      %dt Email
-      %dd= resource.email
-      %dt Letzter login
-      %dd= resource.last_sign_in_at
-      %dt Anzahl Logins
-      %dd= resource.sign_in_count
-      %dt Letzte IP
-      %dd= resource.last_sign_in_ip
-      %dt Erstellt am
-      %dd= resource.created_at
-      %dt Verändert am
-      %dd= resource.updated_at
+    .row
+      .span8
+        %dl
+          %dt Email
+          %dd= resource.email
+          %dt Letzter login
+          %dd= resource.last_sign_in_at
+          %dt Anzahl Logins
+          %dd= resource.sign_in_count
+          %dt Letzte IP
+          %dd= resource.last_sign_in_ip
+          %dt Erstellt am
+          %dd= resource.created_at
+          %dt Verändert am
+          %dd= resource.updated_at
 
-.row
-  .span8
-    = link_to "Zurück", collection_path, :class => 'btn'
+    .row
+      .span8
+        = link_to "Zurück", collection_path, :class => 'btn'
