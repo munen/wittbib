@@ -53,13 +53,14 @@
                     =submit_tag t('.search')
 
     #flash.container
-      .hero-unit
-        .offset2.span8
-          - flash.each do |name, msg|
-            - clazz = (name == :notice) ? "success" : "error"
-            .alert{ :class => "alert-#{clazz}" }
-              .close{ 'data-dismiss' => "alert" }×
-              = msg
+      - if flash.count != 0
+        .hero-unit
+          .offset2.span8
+            - flash.each do |name, msg|
+              - clazz = (name == :notice) ? "success" : "error"
+              .alert{ :class => "alert-#{clazz}" }
+                .close{ 'data-dismiss' => "alert" }×
+                = msg
 
     .container
       .row
