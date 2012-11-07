@@ -37,7 +37,7 @@ gem 'googlebooks'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-  gem 'capistrano', '2.8.0'
+  gem 'capistrano'
   gem 'capybara', '1.1.1'
   gem 'erb2haml'
   gem 'factory_girl'
