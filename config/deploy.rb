@@ -13,7 +13,7 @@ set :default_run_options, { :pty => true }
 set :repository, "git@github.com:preek/wittbib.git"
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
-set :branch, 'seb'
+set :branch, 'nico'
 
 after "deploy", "deploy:cleanup"
 
@@ -29,3 +29,9 @@ task :update_config_links, :roles => [:app] do
 end
 after "deploy:update_code", :update_config_links
 
+
+set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
