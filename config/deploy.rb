@@ -30,8 +30,11 @@ end
 after "deploy:update_code", :update_config_links
 
 
-set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+# set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+#set :default_environment, {
+#  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+#}
+#
+#
 
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
+require 'capistrano-rbenv', rbenv_ruby_version => "1.9.2-p320"
