@@ -35,6 +35,7 @@ after "deploy:update_code", :update_config_links
 #  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 #}
 #
-#
 
-require 'capistrano-rbenv', rbenv_ruby_version => "1.9.2-p320"
+
+set :rbenv_ruby_version => "1.9.2-p320"
+require 'capistrano-rbenv'
