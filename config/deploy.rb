@@ -37,5 +37,6 @@ after "deploy:update_code", :update_config_links
 #
 
 
-set :rbenv_ruby_version, "1.9.2-p320"
 require 'capistrano-rbenv'
+set :rbenv_ruby_version, "1.9.2-p320"
+set :rbenv_use_bundler, true
