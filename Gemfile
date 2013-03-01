@@ -38,6 +38,7 @@ gem 'googlebooks'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'capistrano'
+  gem 'capistrano-rbenv'
   gem 'capybara', '1.1.1'
   gem 'erb2haml'
   gem 'factory_girl'
@@ -54,4 +55,3 @@ group :production do
   gem 'pg', '0.11.0'
 end
 
-gem 'capistrano-rbenv'
