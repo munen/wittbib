@@ -29,15 +29,6 @@ task :update_config_links, :roles => [:app] do
 end
 after "deploy:update_code", :update_config_links
 
-
-# set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
-#set :default_environment, {
-#  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-#}
-#
-
-
 require 'capistrano-rbenv'
 set :rbenv_ruby_version, "1.9.3-p327"
 set :rbenv_install_dependencies, false
-#set :rbenv_ruby_version, "2.0.0"
