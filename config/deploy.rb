@@ -10,10 +10,10 @@ set :rails_env, 'production'
 set :deploy_via, :remote_cache
 set :scm, :git
 set :default_run_options, { :pty => true }
-set :repository, "git@github.com:preek/wittbib.git"
+set :repository, "git@github.com:munen/wittbib.git"
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
-set :branch, 'nico'
+set :branch, 'nico_1.9.3-p327'
 
 after "deploy", "deploy:cleanup"
 
