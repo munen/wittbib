@@ -28,7 +28,7 @@ gem 'formtastic',
 gem 'font-awesome-rails'
 
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
-gem "simple_datatables", :git => "git://github.com/preek/simple_datatables.git"
+gem "simple_datatables", :git => "git://github.com/munen/simple_datatables.git"
 gem "will_paginate"
 gem 'chosen-rails'
 gem 'googlebooks'
@@ -38,13 +38,14 @@ gem 'googlebooks'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'capistrano', '2.8.0'
+  gem 'capistrano-ext'
   gem 'capybara', '1.1.1'
   gem 'erb2haml'
   gem 'factory_girl'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'rspec-rails', '2.8.1'
-  gem 'ruby-debug19'
+  gem 'ruby-debug'
   gem 'spork', "0.9.0.rc9"
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'yard'
