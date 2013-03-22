@@ -1,5 +1,7 @@
 class Api::BooksController < ApplicationController
   def search
-    render :json => GoogleBooks.search("isbn:#{params[:isbn]}").first
+    # adapting GoogleBooks requests to run better on Heroku
+    user_ip = request.remote_ip
+    render :json => GoogleBooks.search("isbn:#{params[:isbn]}", {}, user_ip).first
   end
 end
