@@ -12,6 +12,7 @@
 //= require bootstrap_pagination
 
 //= require isbn
+//= require isbn-groups
 //= require books
 //= require simple_datatables
 
@@ -35,7 +36,7 @@ $(function() {
     if(query=='') {
       feedback.removeClass('warning');
     }
-    if(validateISBN(query)) {
+    if(ISBN.parse(query)) {
       feedback.removeClass('warning').addClass('success');
       queryBooksInternally(query);
     }
