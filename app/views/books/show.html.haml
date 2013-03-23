@@ -1,55 +1,59 @@
-%br
-%br
-.row
-  .span8
-    %h2 #{resource.authors}: #{resource.title}
-  .span4
-    #state.pull-right.label{ :class => 'label-success' }=resource.state
+#book
+  .row
+    .span2
+      = link_to(link_to "Ausleihen", new_book_lending_path(resource), :class => 'btn btn-info')
+    .span2
+      = link_to(link_to "Bearbeiten", edit_book_path(resource), :class => 'btn btn-warning')
 
-.row
-  .span8
-    %table#book-table
-      %tr
-        %td Seitenzahl
-        %td #{resource.page_count}
-      %tr
-        %td Sprache
-        %td #{resource.language}
-      %tr
-        %td Veroeffentlichung
-        %td #{resource.published_date}
-      %tr
-        %td Verlag
-        %td #{resource.publisher}
-      %tr
-        %td ISBN
-        %td #{resource.isbn}
-      %tr
-        %td Beschreibung
-        %td #{resource.description}
+  .row
+    .span8
+      %h2 #{resource.authors}: #{resource.title}
+    .span4
+      #state.pull-right.label{ :class => 'label-success' }=resource.state
 
-  .span4
-    .pull-right= book_cover_picture
+  .row
 
-%br/
-%br/
-.row.well
-  %h3 Historie Ausleihe
-  %strong Anzahl Ausleihen:
-  = resource.lendings.count
-  %table.table.table-striped
-    %thead
-      %tr
-        %th Von
-        %th Ausleihdatum
-        %th Rueckgabedatum
-    %tbody
-    - resource.lendings.each do |lending|
-      %tr
-        - if lending.customer
-          %td= link_to lending.customer.name, lending.customer
-        - else
-          %td Gelöschter Nutzer
-        %td= lending.taken_at.to_date
-        %td= lending.try(:returned_at).try(:to_date) || "Noch ausgeliehen"
+    .span8
+      %table#book-table
+        %tr
+          %td Seitenzahl
+          %td #{resource.page_count}
+        %tr
+          %td Sprache
+          %td #{resource.language}
+        %tr
+          %td Veroeffentlichung
+          %td #{resource.published_date}
+        %tr
+          %td Verlag
+          %td #{resource.publisher}
+        %tr
+          %td ISBN
+          %td #{resource.isbn}
+        %tr
+          %td Beschreibung
+          %td #{resource.description}
+
+    .span4
+      .pull-right= book_cover_picture
+
+  .row.well
+    %h3 Historie Ausleihe
+    %strong Anzahl Ausleihen:
+    = resource.lendings.count
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Von
+          %th Ausleihdatum
+          %th Rueckgabedatum
+      %tbody
+      - resource.lendings.each do |lending|
+        %tr
+          - if lending.customer
+            %td= link_to lending.customer.name, lending.customer
+          - else
+            %td Gelöschter Nutzer
+          %td= lending.taken_at.to_date
+          %td= lending.try(:returned_at).try(:to_date) || "Noch ausgeliehen"
 
