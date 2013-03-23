@@ -1,7 +1,8 @@
 #book
   .row
-    .span2
-      = link_to(link_to "Ausleihen", new_book_lending_path(resource), :class => 'btn btn-info')
+    - if resource.state == t(:available)
+      .span2
+        = link_to(link_to "Ausleihen", new_book_lending_path(resource), :class => 'btn btn-info')
     .span2
       = link_to(link_to "Bearbeiten", edit_book_path(resource), :class => 'btn btn-warning')
 
