@@ -2,6 +2,21 @@
 require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 describe "Books", :js => true do
+  context 'New Book' do
+    before(:each) do
+      log_in
+    end
+
+    it 'fetches metadata from the Internet and creates a new book', :driver => :selenium do
+      visit root_path
+      fill_in 'query', :with => '9781161433197'
+      sleep 2
+      current_path.should == book_path(:id => 1)
+      page.should have_content "Musashi Miyamoto"
+      page.should have_content "Go Rin No Sho"
+    end
+
+  end
   context 'Archive' do
     before(:each) do
       log_in
