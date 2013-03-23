@@ -65,9 +65,6 @@ $(function() {
   function queryGoogle(isbn) {
     $('#progress').show();
     $.ajax('/api/books/'+isbn, {
-      error: function(data) {
-        alert('Error: '+data);
-      },
       success: function(data) {
         console.log(data);
         if (data) {
