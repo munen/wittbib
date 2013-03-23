@@ -18,6 +18,10 @@ class BooksController < InheritedResources::Base
     end
   end
 
+  def destroy
+    destroy!(:notice => "Erfolgreich gelöscht: '#{resource}'") { books_path }
+  end
+
   # Checks whether book is currently in archive. If so, put it back in
   # catalogue. Otherwise put book into archive.
   def toggle_archive

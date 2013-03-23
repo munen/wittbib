@@ -38,4 +38,8 @@ class Book < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "#{authors} - #{title}"
+  end
+
 end

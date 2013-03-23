@@ -14,4 +14,4 @@
           %tr
             %td= book.authors
             %td= book.title
-            %td= link_to(raw("<i class='icon-folder-open'></i>"), toggle_archive_book_path(book), :method => :put, :confirm => "Sind Sie sicher?")
+            %td= link_to(raw("<i class='icon-folder-open'></i>"), toggle_archive_book_path(book), :method => :put, :confirm => "Wirklich zurück in Katalog? (#{book})")

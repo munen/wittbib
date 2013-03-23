@@ -8,5 +8,7 @@ collection.where(:archived => false).each do |book|
            link_to(raw("<i class='icon-book'></i>"), book_path(book)),
            link_to(raw("<i class='icon-edit'></i>"), edit_book_path(book)),
            link_to(raw("<i class='icon-folder-open'></i>"), toggle_archive_book_path(book),
-             :method => :put, :confirm => "Sind Sie sicher?"),]
+             :method => :put, :confirm => "Wirklich archivieren? (#{book})"),
+           link_to(raw("<i class='icon-trash'></i>"), book_path(book),
+             :method => :delete, :confirm => "Wirklich löschen? (#{book})"),]
 end
