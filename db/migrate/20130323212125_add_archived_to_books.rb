@@ -3,7 +3,7 @@ class AddArchivedToBooks < ActiveRecord::Migration
     add_column :books, :archived, :boolean, :default => false
 
     Book.all.each do |b|
-      b.update_attribute :archived => false
+      b.update_attribute :archived, false
     end
   end
 end
