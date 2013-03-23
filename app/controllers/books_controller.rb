@@ -18,11 +18,13 @@ class BooksController < InheritedResources::Base
     end
   end
 
-  def destroy
+  # Checks whether book is currently in archive. If so, put it back in
+  # catalogue. Otherwise put book into archive.
+  def toggle_archive
     book = Book.find(params[:id])
-    book.mark_as_deleted
-    flash[:notice] = 'Buch erfolgreich archiviert'
-    redirect_to books_path
+    notice = book.archived ? "Buch erfolgreich in den Katalog genommen" : 'Buch erfolgreich archiviert'
+    book.toggle!(:archived)
+    redirect_to books_path, :notice => notice
   end
 
   #def create

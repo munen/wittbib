@@ -11,6 +11,7 @@ class Book < ActiveRecord::Base
   default_scope where(:deleted_at => nil)
 
   scope :lent, joins(:lendings).where('lendings.returned_at' => nil)
+  scope :archived, where(:archived => true)
 
   def isbn
     @isbn || isbn_13 || isbn_10
@@ -35,11 +36,6 @@ class Book < ActiveRecord::Base
       csv << [self.authors, self.title, self.isbn, self.language,
               self.page_count, self.published_date, self.publisher]
     end
-  end
-
-  def mark_as_deleted
-    self.deleted_at = Time.now
-    self.save
   end
 
 end

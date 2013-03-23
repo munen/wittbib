@@ -14,9 +14,10 @@ WittBib::Application.routes.draw do
     collection do
       get :search
       get :query
-      get :archive
     end
+    member { put :toggle_archive }
   end
+  resource :archive
 
   root :to => 'books#index'
 

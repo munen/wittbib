@@ -8,10 +8,10 @@
         %tr
           %th Autoren
           %th Titel
-          %th ISBN
+          %th Zurück in Katalog
       %tbody
-        - Book.unscoped.where('deleted_at IS NOT NULL').each do |book|
+        - Book.archived.each do |book|
           %tr
             %td= book.authors
             %td= book.title
-            %td= book.isbn
+            %td= link_to(raw("<i class='icon-folder-open'></i>"), toggle_archive_book_path(book), :method => :put, :confirm => "Sind Sie sicher?")

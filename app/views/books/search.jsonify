@@ -1,4 +1,4 @@
-collection.each do |book|
+collection.where(:archived => false).each do |book|
 
 
   json << [book.authors,
@@ -7,6 +7,6 @@ collection.each do |book|
            link_to(link_to "Leihen", new_book_lending_path(book), :class => 'btn lend'),
            link_to(raw("<i class='icon-book'></i>"), book_path(book)),
            link_to(raw("<i class='icon-edit'></i>"), edit_book_path(book)),
-           link_to(raw("<i class='icon-folder-open'></i>"), book_path(book),
-             :method => :delete, :confirm => "Sind Sie sicher?"),]
+           link_to(raw("<i class='icon-folder-open'></i>"), toggle_archive_book_path(book),
+             :method => :put, :confirm => "Sind Sie sicher?"),]
 end

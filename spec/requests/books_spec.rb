@@ -2,6 +2,38 @@
 require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 describe "Books", :js => true do
+  context 'Archive' do
+    before(:each) do
+      log_in
+    end
+
+    it 'archives a book and does not show it in catalogue anymore' do
+      @book = Factory :book
+      visit root_path
+      page.should have_content(@book.title)
+
+      # Archive link for first book
+      find(:xpath, "//table/tbody/tr/td[7]/a").click
+      page.should have_content("Buch erfolgreich archiviert ")
+      current_path.should == books_path
+      page.should_not have_content(@book.title)
+    end
+
+    it 'puts an archived book back into the catalogue' do
+      @book = Factory :book, :archived => true
+      visit archive_path
+
+      # Unarchive link for first book
+      find(:xpath, "//tbody/tr/td[3]/a").click
+      page.should have_content("Buch erfolgreich in den Katalog genommen ")
+      current_path.should == books_path
+      page.should have_content(@book.title)
+
+      visit archive_path
+      page.should_not have_content(@book.title)
+    end
+
+  end
   context "Lending" do
     before(:each) do
       log_in
