@@ -40,10 +40,12 @@ group :development, :test do
   gem 'capistrano', '2.8.0'
   gem 'capistrano-ext'
   gem 'capybara', '1.1.1'
+  gem 'database_cleaner'
   gem 'erb2haml'
   gem 'factory_girl'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'poltergeist'
   gem 'rspec-rails', '2.8.1'
   gem 'ruby-debug'
   gem 'spork', "0.9.0.rc9"
