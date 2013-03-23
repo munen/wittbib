@@ -10,6 +10,8 @@ class Book < ActiveRecord::Base
 
   default_scope where(:deleted_at => nil)
 
+  scope :lent, joins(:lendings).where('lendings.returned_at' => nil)
+
   def isbn
     @isbn || isbn_13 || isbn_10
   end

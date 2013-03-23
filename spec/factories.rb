@@ -14,5 +14,11 @@ FactoryGirl.define do
   factory :customer do
     sequence(:name) { |n| "Customer #{n}" }
   end
+
+  factory :lending do
+    association :book
+    association :customer
+    taken_at DateTime.now
+  end
 end
 

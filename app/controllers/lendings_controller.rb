@@ -2,6 +2,14 @@
 #
 class LendingsController < InheritedResources::Base
 
+  def new
+    if Book.find(params[:book_id]).state == t(:not_available)
+      redirect_to root_path, :alert => "Bereits ausgeliehen"
+    else
+      super
+    end
+  end
+
   def create
     @lending = Lending.new :book_id => params[:book_id].to_i,
       :customer_id => params[:lending][:customer_id].to_i
