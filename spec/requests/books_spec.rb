@@ -64,7 +64,7 @@ describe "Books", :js => true do
       # Choose a customer
       select(@customer.name, :from => 'lending_customer_id')
       # Lend the book
-      click_button 'lending_submit'
+      click_button 'Leihe Buch aus'
       page.should have_content("Buch ausgeliehen")
     end
 

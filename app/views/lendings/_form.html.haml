@@ -2,5 +2,4 @@
   :html => { :class => 'form-horizontal' } do |f|
   = f.inputs do
     = f.input :customer, :label => "Kunde", :input_html => { 'data-chosen' => true }
-    = f.submit :submit, :label => "Leihe Buch aus",
-      :button_html => { :class => "btn btn-primary" }
+    = f.submit "Leihe Buch aus", :class => "btn btn-primary"
