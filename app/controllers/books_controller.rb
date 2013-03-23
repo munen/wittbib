@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class BooksController < InheritedResources::Base
 
   respond_to :html, :datatables
