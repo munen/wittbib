@@ -9,13 +9,13 @@
         %tr
           %th Name
           %th Telephon
-          %th Ist Bibliotheks Benutzer?
+          %th Ortsteil
       %tbody
         - for record in collection
           %tr
             %td=record.name
             %td=record.phone
-            %td=boolean_checkbox(record.is_library_visitor)
+            %td=record.district
             %td=link_to raw("<i class='icon-eye-open'></i>"), record
             %td= link_to(raw("<i class='icon-edit'></i>"),
               edit_customer_path(record))
