@@ -2,7 +2,7 @@ require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
 require 'capistrano-rbenv'
 
-set :rbenv_ruby_version, "1.9.3-p327"
+set :rbenv_ruby_version, "2.0.0-p0"
 set :rbenv_install_dependencies, false
 
 set :application, 'wittbib'
