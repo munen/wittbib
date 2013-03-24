@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Rails 3.2 - Asset Pipeline
-gem 'json', '1.6.1'
+gem 'json', '1.7.7'
+gem 'sass', '3.1.20'
 gem 'haml', '3.1.4'
-gem 'sass-rails', '3.2.3'
+gem 'sass-rails', '3.2.6'
 gem 'coffee-rails', '3.2.1'
 gem 'uglifier', '1.0.3'
 gem 'therubyracer', '0.9.8'
@@ -27,7 +28,7 @@ gem 'formtastic',
   :branch => '2.1-stable'
 gem 'font-awesome-rails'
 
-gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', '2.0.4.4', :require => 'bootstrap-rails'
 gem "simple_datatables", :git => "git://github.com/munen/simple_datatables.git"
 gem "will_paginate"
 gem 'chosen-rails'
@@ -39,6 +40,7 @@ gem 'googlebooks'
 group :development, :test do
   gem 'capistrano', '2.8.0'
   gem 'capistrano-ext'
+  gem 'capistrano-rbenv', '>= 1.0.0'
   gem 'capybara', '1.1.1'
   gem 'database_cleaner'
   gem 'erb2haml'
@@ -47,7 +49,7 @@ group :development, :test do
   gem 'guard-spork'
   gem 'poltergeist'
   gem 'rspec-rails', '2.8.1'
-  gem 'ruby-debug'
+  #gem 'ruby-debug19'
   gem 'spork', "0.9.0.rc9"
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'yard'
@@ -55,4 +57,5 @@ end
 
 group :production do
   gem 'pg', '0.11.0'
+  gem 'unicorn'
 end

@@ -1,4 +1,8 @@
 class ArchivesController < ApplicationController
-  authorize_resource
+  before_filter :authorize
+
+  def authorize
+    authorize!(params[:action], Book)
+  end
 
 end
