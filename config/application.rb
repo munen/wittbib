@@ -55,9 +55,7 @@ module WittBib
     # declaration.
     config.active_record.whitelist_attributes = true
 
-    # don't initialize rails for asset precompilation
-    # https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar#troubleshooting
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
   end
 end
 
