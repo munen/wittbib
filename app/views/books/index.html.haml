@@ -2,9 +2,9 @@
   .well
     %h2 Katalog
     %br
-    - if can? :manage, Book
       .pull-right
-        = link_to "Neues Buch erfassen", new_resource_path, :class => "btn primary small"
+        - if can? :manage, Book
+          = link_to "Neues Buch erfassen", new_resource_path, :class => "btn primary small"
         = link_to "Exportiere Katalog", books_path(:format => :csv), :class => "btn primary small"
 
     %table.table.table-striped.table-condensed#books
