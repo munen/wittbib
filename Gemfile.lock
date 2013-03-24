@@ -318,7 +318,7 @@ DEPENDENCIES
   simple_datatables!
   spork (= 0.9.0.rc9)
   sqlite3-ruby
-  therubyracer (= 0.9.8)
+  therubyracer
   uglifier (= 1.0.3)
   unicorn
   will_paginate
