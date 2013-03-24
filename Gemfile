@@ -32,6 +32,7 @@ gem "simple_datatables", :git => "git://github.com/munen/simple_datatables.git"
 gem "will_paginate"
 gem 'chosen-rails'
 gem 'googlebooks'
+gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -51,7 +52,6 @@ group :development, :test do
   gem 'poltergeist'
   gem 'rspec-rails', '2.8.1'
   gem 'spork', "0.9.0.rc9"
-  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'yard'
 end
 
