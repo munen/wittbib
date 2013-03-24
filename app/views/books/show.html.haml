@@ -1,10 +1,11 @@
 #book
-  .row
-    - if resource.state == t(:available)
+  - if can? :manage, Book
+    .row
+      - if resource.state == t(:available)
+        .span2
+          = link_to(link_to "Ausleihen", new_book_lending_path(resource), :class => 'btn btn-info')
       .span2
-        = link_to(link_to "Ausleihen", new_book_lending_path(resource), :class => 'btn btn-info')
-    .span2
-      = link_to(link_to "Bearbeiten", edit_book_path(resource), :class => 'btn btn-warning')
+        = link_to(link_to "Bearbeiten", edit_book_path(resource), :class => 'btn btn-warning')
 
   .row
     .span8
@@ -38,23 +39,24 @@
     .span4
       .pull-right= book_cover_picture
 
-  .row.well
-    %h3 Historie Ausleihe
-    %strong Anzahl Ausleihen:
-    = resource.lendings.count
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Von
-          %th Ausleihdatum
-          %th Rueckgabedatum
-      %tbody
-      - resource.lendings.each do |lending|
-        %tr
-          - if lending.customer
-            %td= link_to lending.customer.name, lending.customer
-          - else
-            %td Gelöschter Nutzer
-          %td= lending.taken_at.to_date
-          %td= lending.try(:returned_at).try(:to_date) || "Noch ausgeliehen"
+  - if can? :read, Lending
+    .row.well
+      %h3 Historie Ausleihe
+      %strong Anzahl Ausleihen:
+      = resource.lendings.count
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Von
+            %th Ausleihdatum
+            %th Rueckgabedatum
+        %tbody
+        - resource.lendings.each do |lending|
+          %tr
+            - if lending.customer
+              %td= link_to lending.customer.name, lending.customer
+            - else
+              %td Gelöschter Nutzer
+            %td= lending.taken_at.to_date
+            %td= lending.try(:returned_at).try(:to_date) || "Noch ausgeliehen"
 
