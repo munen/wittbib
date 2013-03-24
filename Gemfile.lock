@@ -61,6 +61,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    cancan (1.6.9)
     capistrano (2.8.0)
       highline
       net-scp (>= 1.0.0)
@@ -285,6 +286,7 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails (>= 2.0)
+  cancan
   capistrano (= 2.8.0)
   capistrano-ext
   capybara (= 1.1.1)

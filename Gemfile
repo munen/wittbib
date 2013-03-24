@@ -11,13 +11,13 @@ gem 'uglifier', '1.0.3'
 gem 'therubyracer', '0.9.8'
 
 # gems in alphabetic order
+gem 'cancan'
 gem 'devise'
 gem 'exception_notification_rails3', '1.2.0', :require => 'exception_notifier'
 gem 'heroku'
 gem 'inherited_resources', '1.3.0'
 gem 'jquery-rails', '2.0.2'
 gem 'rake', '0.9.2.2'
-
 
 gem 'formtastic-bootstrap',
   :git => 'git://github.com/cgunther/formtastic-bootstrap.git',

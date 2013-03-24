@@ -1,4 +1,6 @@
 class Api::BooksController < ApplicationController
+  authorize_resource
+
   def search
     # adapting GoogleBooks requests to run better on Heroku
     user_ip = request.remote_ip

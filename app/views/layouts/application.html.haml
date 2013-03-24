@@ -38,7 +38,9 @@
                   %li.info= "Angemeldet als #{current_user.email}"
                   %li= link_to "Abmelden", destroy_user_session_path,
                     :method => :delete
-
+          - else
+            #user_nav.nav.pull-right
+              %li= link_to 'Anmelden', new_user_session_path
 
         - if user_signed_in?
           .container
@@ -69,5 +71,9 @@
         .span12#content= yield
 
       %footer.pull-right
-        WittBib von
-        != link_to "Panter llc", "http://www.panter.ch", :target => :blank
+        -#WittBib von
+        -#!= link_to "Panter", "http://www.panter.ch", :target => :blank
+
+    #authorization
+      = user_signed_in? ? "user" : "anonymous"
+

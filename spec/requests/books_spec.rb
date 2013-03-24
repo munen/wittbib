@@ -79,4 +79,29 @@ describe "Books", :js => true do
       page.should have_content("Bereits ausgeliehen")
     end
   end
+
+  context "Catalogue" do
+    context "Anonymous" do
+      it 'should not show modifier links' do
+        Factory :book
+        visit root_path
+        find(:xpath, "//table/tbody/tr/td[4]/a[2]").should_not be_visible
+        find(:xpath, "//table/tbody/tr/td[6]/a").should_not be_visible
+        find(:xpath, "//table/tbody/tr/td[7]/a").should_not be_visible
+        find(:xpath, "//table/tbody/tr/td[8]/a").should_not be_visible
+      end
+    end
+    context "Logged in" do
+      it 'should show modifier links' do
+        Factory :book
+        log_in
+        visit root_path
+        find(:xpath, "//table/tbody/tr/td[4]/a[2]").should be_visible
+        find(:xpath, "//table/tbody/tr/td[6]/a").should be_visible
+        find(:xpath, "//table/tbody/tr/td[7]/a").should be_visible
+        find(:xpath, "//table/tbody/tr/td[8]/a").should be_visible
+      end
+
+    end
+  end
 end

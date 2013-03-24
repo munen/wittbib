@@ -42,5 +42,13 @@ $ ->
         }
       },
       "fnServerData"    : simpleDatatables,
-      "sDom": 'T<"clear">lfrtip'
+      "sDom": 'T<"clear">lfrtip',
+      "fnInitComplete" : ->
+        # For anonymous login, do not show lend/edit/archive/destroy links
+        if ($("#authorization").text().trim() == "anonymous")
+          $('td:nth-last-child(5)').hide()
+          $('td:nth-last-child(3)').hide()
+          $('td:nth-last-child(2)').hide()
+          $('td:nth-last-child(1)').hide()
     });
+

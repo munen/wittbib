@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 class LendingsController < InheritedResources::Base
+  authorize_resource
 
   def new
     if Book.find(params[:book_id]).state == t(:not_available)

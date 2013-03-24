@@ -1,6 +1,8 @@
 #encoding: UTF-8
 class BooksController < InheritedResources::Base
 
+  authorize_resource
+
   respond_to :html, :datatables
 
   def new

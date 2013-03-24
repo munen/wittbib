@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class UsersController < InheritedResources::Base
+  authorize_resource
+
   def update
     @user = User.find(current_user.id)
     if @user.update_attributes(params[:user])
