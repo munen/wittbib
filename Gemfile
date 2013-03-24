@@ -37,6 +37,7 @@ gem 'googlebooks'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
+  #gem 'ruby-debug19'
   gem 'capistrano', '2.8.0'
   gem 'capistrano-ext'
   gem 'capistrano-rbenv', '>= 1.0.0'
@@ -46,9 +47,9 @@ group :development, :test do
   gem 'factory_girl'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'launchy'
   gem 'poltergeist'
   gem 'rspec-rails', '2.8.1'
-  #gem 'ruby-debug19'
   gem 'spork', "0.9.0.rc9"
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'yard'
