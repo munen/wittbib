@@ -43,7 +43,7 @@ $ ->
       },
       "fnServerData"    : simpleDatatables,
       "sDom": 'T<"clear">lfrtip',
-      "fnInitComplete" : ->
+      "fnDrawCallback" : ->
         # For anonymous login, do not show lend/edit/archive/destroy links
         if ($("#authorization").text().trim() == "anonymous")
           $('td:nth-last-child(5)').hide()
