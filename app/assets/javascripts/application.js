@@ -57,12 +57,12 @@ $(function() {
       success: function(data, textStatus, jqXHR) {
         $('#content').html('').append(data);
         $('#progress').hide();
-        if($('#new_book').length > 0) { queryGoogle(isbn); };
+        if($('#new_book').length > 0) { queryAPI(isbn); };
       }
     });
   }
 
-  function queryGoogle(isbn) {
+  function queryAPI(isbn) {
     $('#progress').show();
     $.ajax('/api/books/'+isbn, {
       success: function(data) {

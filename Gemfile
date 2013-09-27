@@ -31,14 +31,21 @@ gem 'anjlab-bootstrap-rails', '2.0.4.4', :require => 'bootstrap-rails'
 gem "simple_datatables", :git => "git://github.com/munen/simple_datatables.git"
 gem "will_paginate"
 gem 'chosen-rails'
-gem 'googlebooks'
 gem 'sqlite3-ruby', :require => 'sqlite3'
+
+# ISBN apis
+gem 'googlebooks'
+
+# amazon product advertising api
+# http://docs.aws.amazon.com/AWSECommerceService/latest/DG/EX_LookupbyISBN.html
+gem 'vacuum'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
   #gem 'ruby-debug19'
+  gem 'debugger'
   gem 'capistrano', '2.8.0'
   gem 'capistrano-ext'
   gem 'capistrano-rbenv', '>= 1.0.0'
@@ -52,6 +59,8 @@ group :development, :test do
   gem 'poltergeist'
   gem 'rspec-rails', '2.8.1'
   gem 'spork', "0.9.0.rc9"
+  gem 'vcr', require: false
+  gem 'webmock', require: false
   gem 'yard'
 end
 
