@@ -26,6 +26,10 @@ task :update_config_links, :roles => [:app] do
 end
 after "deploy:update_code", :update_config_links
 
+task :update_amazon_api_key, :roles => [:app] do
+  upload "./config/amazon_keys.yml", "/home/rails/app/current/config/amazon_keys.yml", :via => :scp
+end
+after "deploy:symlink", :update_amazon_api_key
 
 # Overwrite deployment methods
 # deploy:start and deploy:stop aren't needed as they're handled by passenger
