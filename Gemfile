@@ -31,7 +31,6 @@ gem 'anjlab-bootstrap-rails', '2.0.4.4', :require => 'bootstrap-rails'
 gem "simple_datatables", :git => "git://github.com/munen/simple_datatables.git"
 gem "will_paginate"
 gem 'chosen-rails'
-gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # ISBN apis
 gem 'googlebooks'
@@ -46,6 +45,7 @@ gem 'vacuum'
 group :development, :test do
   #gem 'ruby-debug19'
   gem 'debugger'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'capistrano', '2.8.0'
   gem 'capistrano-ext'
   gem 'capistrano-rbenv', '>= 1.0.0'
