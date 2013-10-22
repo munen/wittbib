@@ -10,6 +10,7 @@ class BookSearch
 
   def search_google(isbn)
     res = GoogleBooks.search("isbn:#{isbn}", {}).first
+    return unless res
     own_accessors.each do |accessor|
       attribute = accessor.to_s[0..-2]
       self.send(accessor, res.send(attribute)) unless res.send(attribute).to_s.empty?
